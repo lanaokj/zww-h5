@@ -1,0 +1,8 @@
+node
+gulp
+淘宝镜像
+cnpm install
+
+gulp
+ -gulpfile.js
+	配置文件 文件夹

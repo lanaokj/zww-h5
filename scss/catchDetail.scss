@@ -1,0 +1,105 @@
+body{
+    color: #fff;
+}
+header{
+    width: 100%;
+    height: .87rem;
+    background:  #e4a6c6;
+    img{
+        width: .42rem;
+        height: .42rem;
+        position: absolute;
+        left: .26rem;
+        top: .2rem;
+    }
+    P{
+        height: 100%;
+        position: relative;
+        line-height: .87rem;
+        text-align: center;
+    }
+}
+.list{
+    width: 100%;
+    color: #000;
+    // padding: .3rem .26rem;
+    border-bottom:  #d2d2d2 .01rem solid;
+    :nth-child(1){
+        border: none;
+    }
+    li{
+        height: 1.4rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        // margin-bottom: .3rem;
+        border-top: #d2d2d2 .01rem solid;
+        // padding-top: .34rem;
+        margin: 0 .23rem;
+        img{
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            margin-left: .26rem;
+        }
+    }
+
+    .num{
+        font-size: .28rem;
+    }
+    .green{
+        color: green;
+    }
+    .red{
+        color: red;
+    }
+}
+.detail{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: -0.2rem;
+    width: 4rem;
+    // align-items: flex-start;
+    :nth-child(1){
+        font-size: .32rem;
+        color: #010101;
+    }
+    span{
+        font-size: .26rem;
+        color: #666;
+        margin-bottom: .1rem;
+    }
+}
+.icon1{
+    width: .8rem;
+    height: .36rem;
+    border-radius: .18rem;
+    font-style: normal;
+    font-size: .28rem;
+    text-align:center;
+    line-height: .36rem;
+}
+.success{
+    color: #fff;    
+    background: #ecaacc;
+}
+.faild{
+    color: #666;
+    background: #d8d8d8;    
+}
+
+
+//暂无抓取记录显示
+.noneList{
+    width: 100%;
+    height: 13rem;
+    background: #F0F0F0 url(../images/@2x.png) no-repeat center center;
+    background-size: 2.75rem 2.77rem;
+    text-align: center;
+    color: #666;
+    font-size: .32rem;
+    padding-top: 8.5rem;
+    display: none;
+}

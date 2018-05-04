@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes"> 
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>充值测试</title>
+    <script src="./js/rem.js"></script>
+    <link rel="stylesheet" href="./css/reset.css">
+    <style>
+        #id{
+            display: block;
+            width: 10rem;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <button id="pay">支付</button>
+    <!-- <a href="" id="pay">充值</a> -->
+    <!-- <script src="//wx.gtimg.com/wxpay_h5/fingerprint2.min.1.4.1.js"></script> -->
+    <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>   
+    <script src="./js/jquery-3.1.1.min.js"></script>
+    <script>    
+        document.write(returnCitySN["cip"]+','+returnCitySN["cname"])   
+        $('#pay').on('click',function(){
+            $.ajax({
+                type:'post',
+                url:'https://sjl.natappvip.cc/icrane/api/wx/pay',
+                data:{
+                    "token":"wx_fb86bded-224c-4d1b-aa58-8a8ac35ef7a3",
+                    "chargeruleid":4,
+                    "memberId":230,
+                    "IP":returnCitySN['cip'],
+                },
+                dataType:'json',
+                success:function(res){
+                    console.log(res);
+                    if(res.success){
+                        // window.location.href = res.resultData.mwebUrl+'?'+Math.random();
+                        console.log(data);
+                    }
+                }
+            })
+        })
+        // var fp=new Fingerprint2();
+        //         fp.get(function(result)
+        //     {
+        //     $.getJSON("h5.json.php?code="+result, function(d){
+        //         if(d.errmsg == ''){
+        //             $('#pay').attr("href",d.url);
+        //         }else{
+        //         alert(d.errmsg);
+                                            
+        //     }
+                        
+        //     });                                                            
+        //     }
+        //           );
+                
+    </script>
+</body>
+</html>

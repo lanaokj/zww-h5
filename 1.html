@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name='apple-itunes-app' content='app-id=1314921684'>
+    <title>唤起App</title>
+    <style>
+        #toApp{
+            display: block;
+            width: 150px;
+            height: 100px;
+            background: pink;
+            text-decoration: none;
+            color: #fff;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <a href="javascript:;" id="toApp">唤起APP</a>
+
+    <script>
+        var u = navigator.userAgent;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        var toApp = document.getElementById('toApp');
+        console.log(u,isiOS);
+        toApp.onclick = function(){
+            if(isiOS){
+                // ios();
+                // function ios(){
+                //     window.location.href = 'WG365://?type=1';
+                //     window.setTimeout(function(){
+                //         window.location.href = "https://itunes.apple.com/cn/app/365%E6%8A%93%E5%A8%83%E5%A8%83/id1314921684?mt=8";
+                //     },500)
+                // }
+                var ifr = document.createElement('iframe');
+                ifr.src = 'WG365://?type=1';//打开app的协议，有app同事提供
+                ifr.style.display = 'none';
+                document.body.appendChild(ifr);
+                window.setTimeout(function(){
+                    document.body.removeChild(ifr);
+        　　　　　　　window.location.href = "https://itunes.apple.com/cn/app/365%E6%8A%93%E5%A8%83%E5%A8%83/id1314921684?mt=8";//打开app下载地址，有app同事提供
+                },500)
+            };
+            if(isAndroid){
+                android();
+                function android(){
+                    window.location.href = 'wanyiguo://zww365.app/openwith?name=11&type=1';
+                    window.setTimeout(function(){
+                        window.location.href = "http://a.app.qq.com/o/simple.jsp?pkgname=com.wanyiguo.zww365";
+                    },1000)
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>

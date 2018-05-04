@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="yes" name="apple-mobile-web-app-capable"> 
+    <meta content="telephone=no" name="format-detection">
+    <!-- <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"> -->
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
+    <title>蓝澳抓娃娃</title>
+    <script src="./js/rem.js"></script>    
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/personal.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>  
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>       
+    <title>蓝澳抓娃娃</title>
+</head>
+<body>
+    <header>
+        <div class="title">个人中心</div>
+        <!-- <div class="headPic"><img src="./images/logo@2x.png" alt=""><img class="sex" src="./imaxing_bie_nan、@2x.png.png" alt=""></div>
+        <span class="userName">啦啦啦</span>
+        <div class="idAndCatch">
+            <span class="id">ID:93157131</span>
+            <span class="line"></span>
+            <span>抓取次数:2020</span>
+        </div> -->
+    </header>
+    <ul class="select">
+        <li id="hi">
+            <img class="icon"  src="./images/Hi@2x.png" alt="">
+            <div class="hiContent">
+                <span>我的Hi币</span>
+                <span id="mycoins">读取中...</span>
+                <span id="recharge1"><span>充值</span></span>
+            </div>
+        </li>
+        <li><a href="./mybox.html"><img class="icon" src="images/ji_cun_xiangicon@2x.png" alt=""><div class="hiContent">
+            <span class="">寄存箱</span><img class="enter" src="images/fan_hui@2x(2).png" alt="">
+        </div></a></li>
+        <li><a href="./catchDetail.html"><img class="icon" src="images/zhua_qu_ji_luicon@2x.png" alt=""><div class="hiContent">
+            <span class="">抓取记录</span><img class="enter" src="images/fan_hui@2x(2).png" alt="">
+        </div></a></li>
+        <li><a href="./hicoin.html"><img class="icon" src="images/hi_bi_ming_xi@2x.png" alt=""><div class="hiContent">
+            <span class="">Hi币明细</span><img class="enter" src="images/fan_hui@2x(2).png" alt="">
+        </div></a></li>
+        <li class="invite"><a href="./invite.html" class="invite"><img class="icon" src="images/rui_huan_yao_qing_maicon@2x.png" alt=""><div class="hiContent">
+            <span class="">邀请好友</span><img class="enter" src="images/fan_hui@2x(2).png" alt="">
+        </div></a></li>
+        <li><a href="javascript:;" class="call"><img class="icon" src="images/lian_xi_ke_fuicon@2x.png" alt=""><div class="hiContent">
+            <span class="">联系客服</span><img class="enter" src="images/fan_hui@2x(2).png" alt="">
+        </div></a></li>
+    </ul>
+    <!-- <div class="out">
+        <button class="outLogin">退出登录</button>
+    </div> -->
+    <div class="hideContent">
+        <div class="hideRecharge">
+            <div class="hibi">
+                <span>我的余额</span>
+                <div class="number">
+                    <span class="num">99</span>
+                    <span>Hi币</span>
+                </div>
+                <img src="images/yi_tui_jin_bi@2x.png" alt="">
+            </div>
+            <ul class="list">
+                <!-- <li>
+                    <a href="javascript:;" class="download" id="charge17">
+                        <div class="coins">
+                        <div class="text">
+                            <span>300币</span>
+                            <span class="give">周送140币</span>
+                        </div>
+                            <img src="./imajinbi@2x.png.png" alt="">
+                        </div>
+                        <div class="price">新周卡¥0.01</div>
+                    </a>
+                </li> -->
+                <!-- <li>
+                    <div class="coins">
+                        <div class="coinsNum">
+                            <div>
+                                <span class="font24">200+16</span>   <span class="font30">Hi币</span>
+                            </div>
+                            <span class="coinsName">新年礼包</span>
+                        </div>
+                        <span class="dec">200币送16币</span>
+                    </div>
+                    <div class="chargePrice">¥20</div>
+                </li> -->
+            </ul>
+            <a class="close" href="javascript:;"></a>            
+        </div>
+    </div>
+    <div class="hideContact">
+        <div class="contact">
+            <div class="text">
+                <span>客服QQ：3266804845</span>
+                <span>官方交流群：281869154</span>
+                <span>客服微信：z365zww</span>
+                <span>客服时间：9:30-22:00</span>
+            </div>
+            <button id="iknow">我知道了</button>
+        </div>
+    </div>
+    <div class="hideInvite">
+        <div class="content">
+            <input type="text" class="inviteCode" placeholder="输入邀请码">
+            <button class="accept">接受邀请</button>
+            <a class="close_" href="javascript:;"></a>
+        </div>
+    </div>
+    <nav class="nav-bpttom">
+        <a href="./index_room.html" class="index"><img src="images/shou_ye-wei_xuan_zhong@2x.png" alt=""><span>首页</span></a>
+        <a href="javascript:;" id="recharge"><img src="./images/recharge_icon@2x.png" alt=""></a>
+        <a href="javascript:;"><img src="images/wo_de-xuan_zhong@2x.png" alt=""><span class="currentpage">我的</span></a>
+    </nav>
+    <script src="./js/jquery-3.1.1.min.js"></script>
+    <script src="./js/zepto.min.js"></script>
+    <script src="./js/ui.js"></script>    
+    <script src="./js/ip.js"></script>
+    <script src="./js/personal.js"></script>
+    <script>
+        var u = navigator.userAgent;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        $('.download').on('click',function(){
+        // alert(1111);
+        console.log(isiOS,isAndroid);
+            if(isiOS){
+                window.open("https://itunes.apple.com/cn/app/365%E6%8A%93%E5%A8%83%E5%A8%83/id1314921684?mt=8");
+            }else{
+                window.open("http://a.app.qq.com/o/simple.jsp?pkgname=com.wanyiguo.zww365");
+            }
+        }); 
+    </script>
+    <script>
+        var _mtac = {};
+        (function() {
+            var mta = document.createElement("script");
+            mta.src = "http://pingjs.qq.com/h5/stats.js?v2.0.2";
+            mta.setAttribute("name", "MTAH5");
+            mta.setAttribute("sid", "500600493");
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(mta, s);
+        })();
+    </script>
+</body>
+</html>

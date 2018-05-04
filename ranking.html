@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=yes">
+    <title>排行榜</title>
+    <script src="./js/rem.js"></script>    
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/ranking.css">
+    <!-- <link rel="stylesheet" href="./css/pullToRefresh.css"/> -->
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+
+    <div class="border">
+        <div class="tabs">
+            <a href="javascript:;" class="active">充值榜</a>
+            <a href="javascript:;">邀请榜</a>
+            <a href="javascript:;">抓取榜</a>
+        </div>
+    </div>
+    <div class="tab">
+        <div class="list1 current" style="width: 100%;">
+            <div class="top2">
+                <div class="smallImg">
+                    <img src="./images/logo@2x.png" alt="" class="iconImg">
+                    <img src="images/yin_guan@2x.png" alt="">
+                    <img src="images/no.2_xia@2x.png" alt="" class="middle">
+                    <img src="images/no.2_zuo@2x.png" alt="" class="left">
+                    <img src="images/no.2_you@2x.png" alt="" class="right">
+                    <span class="middle">NO.2</span>
+                </div>
+                <div class="smallText">
+                    <span class="userName">读取中..</span>
+                    <span class="score"></span>
+                    <span class="given"></span>
+                </div>
+            </div>
+            <div class="top1">
+                <div class="bigImg">
+                    <img src="./images/logo@2x.png" alt="" class="iconImg">
+                    <img src="images/jin_guan@2x.png" alt="">
+                    <img src="images/no.1_xia@2x.png" alt="" class="middle">
+                    <img src="images/no.1_zuo@2x.png" alt="" class="left">
+                    <img src="images/no.1_you@2x.png" alt="" class="right">
+                    <span class="middle">NO.1</span>
+                </div>
+                <div class="smallText">
+                    <span class="userName">读取中..</span>
+                    <span class="score"></span>
+                    <span class="given"></span>
+                </div>
+            </div>
+            <div class="top3">
+                <div class="smallImg">
+                    <img src="./images/logo@2x.png" alt="" class="iconImg">
+                    <img src="images/tong_guan@2x.png" alt="">
+                    <img src="images/no.3_xia@2x.png" alt="" class="middle">
+                    <img src="images/no.3_zuo@2x.png" alt="" class="left">
+                    <img src="images/no.3_you@2x.png" alt="" class="right">
+                    <span class="middle">NO.3</span>
+                </div>
+                <div class="smallText">
+                    <span class="userName">读取中..</span>
+                    <span class="score"></span>
+                    <span class="given"></span>
+                </div>
+            </div>
+        </div>
+        <div class="list2" style="width: 100%;">
+            <div class="top2">
+                <div class="smallImg">
+                    <img src="./images/logo@2x.png" alt="" class="iconImg">
+                    <img src="images/yin_guan@2x.png" alt="">
+                    <img src="images/no.2_xia@2x.png" alt="" class="middle">
+                    <img src="images/no.2_zuo@2x.png" alt="" class="left">
+                    <img src="images/no.2_you@2x.png" alt="" class="right">
+                    <span class="middle">NO.2</span>
+                </div>
+                <div class="smallText">
+                    <span class="userName">读取中..</span>
+                    <span class="score"></span>
+                    <span class="given"></span>
+                </div>
+            </div>
+            <div class="top1">
+                <div class="bigImg">
+                    <img src="./images/logo@2x.png" alt="" class="iconImg">
+                    <img src="images/jin_guan@2x.png" alt="">
+                    <img src="images/no.1_xia@2x.png" alt="" class="middle">
+                    <img src="images/no.1_zuo@2x.png" alt="" class="left">
+                    <img src="images/no.1_you@2x.png" alt="" class="right">
+                    <span class="middle">NO.1</span>
+                </div>
+                <div class="smallText">
+                    <span class="userName">读取中..</span>
+                    <span class="score"></span>
+                    <span class="given"></span>
+                </div>
+            </div>
+            <div class="top3">
+                <div class="smallImg">
+                    <img src="./images/logo@2x.png" alt="" class="iconImg">
+                    <img src="images/tong_guan@2x.png" alt="">
+                    <img src="images/no.3_xia@2x.png" alt="" class="middle">
+                    <img src="images/no.3_zuo@2x.png" alt="" class="left">
+                    <img src="images/no.3_you@2x.png" alt="" class="right">
+                    <span class="middle">NO.3</span>
+                </div>
+                <div class="smallText">
+                    <span class="userName">读取中..</span>
+                    <span class="score"></span>
+                    <span class="given"></span>
+                </div>
+            </div>
+        </div>
+        <div class="list3" style="width: 100%">
+            <div class="top2">
+                <div class="smallImg">
+                    <img src="./images/logo@2x.png" alt="" class="iconImg">
+                    <img src="images/yin_guan@2x.png" alt="">
+                    <img src="images/no.2_xia@2x.png" alt="" class="middle">
+                    <img src="images/no.2_zuo@2x.png" alt="" class="left">
+                    <img src="images/no.2_you@2x.png" alt="" class="right">
+                    <span class="middle">NO.2</span>
+                </div>
+                <div class="smallText">
+                    <span class="userName"></span>
+                    <span class="score"></span>
+                    <span class="given"></span>
+                </div>
+            </div>
+            <div class="top1">
+                <div class="bigImg">
+                    <img src="./images/logo@2x.png" alt="" class="iconImg">
+                    <img src="images/jin_guan@2x.png" alt="">
+                    <img src="images/no.1_xia@2x.png" alt="" class="middle">
+                    <img src="images/no.1_zuo@2x.png" alt="" class="left">
+                    <img src="images/no.1_you@2x.png" alt="" class="right">
+                    <span class="middle">NO.1</span>
+                </div>
+                <div class="smallText">
+                    <span class="userName"></span>
+                    <span class="score"></span>
+                    <span class="given"></span>
+                </div>
+            </div>
+            <div class="top3">
+                <div class="smallImg">
+                    <img src="./images/logo@2x.png" alt="" class="iconImg">
+                    <img src="images/tong_guan@2x.png" alt="">
+                    <img src="images/no.3_xia@2x.png" alt="" class="middle">
+                    <img src="images/no.3_zuo@2x.png" alt="" class="left">
+                    <img src="images/no.3_you@2x.png" alt="" class="right">
+                    <span class="middle">NO.3</span>
+                </div>
+                <div class="smallText">
+                    <span class="userName"></span>
+                    <span class="score"></span>
+                    <span class="given"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box">
+        <span>排名</span>
+        <span>充值指数</span>
+        <span>奖励</span>
+    </div>
+    <div class="ranklist">
+        <ul class="ranklist1 current1">
+        </ul>
+        <ul class="ranklist2">
+        </ul>
+        <ul class="ranklist3">
+        </ul>
+        <div class="list">
+            <span class="myrank1">未上榜</span>
+            <img src="./images/logo@2x.png" alt="" class="myImg">
+            <span class="myname">我</span>
+            <span class="mycore"></span>
+            <span class="mygiven">无</span>
+        </div>
+    </div>
+    <div class="loading">
+
+    </div>
+            
+</div>
+    <script src="./js/jquery-3.1.1.min.js"></script>
+    <script src="./js/zepto.min.js"></script>
+    <script src="./js/ranking.js"></script>
+    <!-- <script src="./js/pullToRefresh.js"></script>
+    <script src="./js/colorful.js"></script>
+    <script src="./js/iscroll.js"></script> -->
+    <script>
+        // refresher.init({
+        //     id:"wrapper",
+        //     // pullDownAction:Refresh,                                                            
+        //     pullUpAction:Load                                                                             
+        //     });    
+        //     function Refresh() {       
+        //     // <-- Simulate network congestion, remove setTimeout from production!
+        //         wrapper.refresh();/****remember to refresh after  action completed！ --example-yourId.refresh(); ----| ****/
+        //     } 
+            
+        //     function Load() {
+        //     // <-- Simulate network congestion, remove setTimeout from production!
+        //     wrapper.refresh();/****remember to refresh after action completed！！！   -example--yourId.refresh(); --- ****/
+        //     }
+    </script>
+</body>
+</html>

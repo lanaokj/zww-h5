@@ -1,0 +1,294 @@
+.wxlogin{
+    // background: url(../images/loading-h5_03.png) no-repeat;
+    width: 100%;
+    background-size: cover;
+    display: none;
+    img{
+        width: 100%;
+    }
+}
+.container{
+    // width: 7.5rem;
+    // height: 13.34rem;
+    // background: url(../images/1@3x.png) no-repeat -1.99rem -3.22rem;
+    // background-size: cover;
+    // // background-position: -2rem -3rem;
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    background: url(../images/zu32.png) no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    display: none;
+    .mainpage{
+        width: 5.18rem;
+        height: 10.49rem;
+        padding-top: .6rem;
+        margin: 0 auto;
+        // display: none;
+        // display: flex;
+        // vertical-align: middle;
+        .logo{
+            height: 2.14rem;
+            display: flex;
+            flex-direction: column; 
+            justify-content: space-between;
+            align-items: center;
+        }
+        img{
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+        span{
+            font-size: .38rem;
+            color: #fb8fc7;
+            // line-height: 38px;
+        }
+        .describe{
+            width: 5.18rem;
+            height: 2.24rem;
+            background: url(../images/zu29@2x.png) no-repeat center;
+            background-size: cover;
+            margin-top: 0.82rem;
+        }
+        .login{
+            width: 100%;
+            height: 5.32rem;
+            // background: pink;
+            position: relative;
+            .line{
+                width: 6.35rem;
+                height: 0.03rem;
+                background-color: rgba(104, 124, 123, 0.8);
+                opacity: 0.8;
+                position: absolute;
+                top: 2.01rem;
+                left: 50%;
+                margin-left: -3.175rem;
+            }
+            .login_method{
+                background: #fff;
+                width: 1.8rem;
+                height: .27rem;
+                font-size: .28rem;
+                line-height: .27rem;
+                letter-spacing: 0px;
+                color: #687c7b;
+                position: absolute;
+                top: 1.9rem;
+                left: 50%;
+                margin-left: -.9rem;
+                z-index: 2;
+                text-align: center;
+            }
+            .login-icon{
+                position: absolute;
+                bottom: 1rem;
+                left: 50%;
+                margin-left: -.76rem;
+                width: 1.42rem;
+                height: 1.62rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                img{
+                    width: 1.14rem;
+                    height: 1.14rem;
+                }
+                span{
+                    width: 1.42rem;
+                    height: .27rem;
+                    font-size: .28rem;
+                    line-height: .27rem;
+                    letter-spacing: 0px;
+                    color: #687c7b;
+                    text-align: center;
+                }
+            }
+            .agreement{
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                margin-left: -2.14rem;
+                width: 4.28rem;
+                height: .28rem;
+                font-size: .26rem;
+                line-height: .28rem;
+                letter-spacing: 0px;
+                color: #687c7b;
+                text-align: center;
+                text-decoration: underline;
+            }
+        }
+    }
+    .login_page{
+        width: 100%;
+        min-height: 100%;
+        position:absolute;
+        left: 7.5rem;
+        display: none;
+        .back{
+            display: block;
+            width: .5rem;
+            height: .5rem;
+            background: url(../images/fan_hui@2xhei.png) no-repeat;
+            background-size: cover;
+            position: absolute;
+            top: .6rem;
+            left: .25rem;
+        }
+        .login_wrap{
+            width: 5.37rem;
+            position: absolute;
+            top: 3.04rem;
+            left: 50%;
+            margin-left: -2.685rem;
+        }
+        .login_text{
+            width: 2.69rem;
+            height: .36rem;
+            font-size: .38rem;
+            line-height: .36rem;
+            letter-spacing: 0px;
+            color: #ea8cbc;
+            text-align: center;
+            margin: auto;
+        }
+        .flex_box{
+            margin-top: .81rem;
+            display: flex;
+            height: 1.92rem;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .num_box{
+            width: 100%;
+            height: .79rem;
+            border-radius: .39rem;
+            border: solid .02rem #56bebb;
+            background: url(../images/shou_ji@2x.png) no-repeat .45rem .19rem ;
+            background-size: .3rem .42rem;
+            font-size: .30rem;
+            // line-height: 62px;
+            letter-spacing: 0px;
+            color: #ea8cbc;
+            padding-left: 1.08rem;
+            vertical-align: middle;  
+        }
+        .code{
+            display: flex;
+            justify-content: space-between;
+        }
+        .code_box{
+            width: 3.23rem;
+            height: .79rem;
+            border-radius: .39rem;
+            border: solid .02rem #56bebb;
+            background: url(../images/yan_zheng_ma@2x.png) no-repeat .49rem .22rem ;
+            background-size: .4rem .35rem;
+            font-size: .30rem;
+            // line-height: 62px;
+            letter-spacing: 0px;
+            color: #ea8cbc;
+            padding-left: 1.08rem;
+            vertical-align: middle;
+        }
+        .getCode_box{
+            width: 1.95rem;
+            height: .79rem;
+            border-radius: .39rem;
+            border: solid .02rem #56bebb;
+            text-align: center;
+            // border: none;
+            outline: none;
+            // background: rgb(192, 191, 191);
+            color: #ea8cbc;
+            // span{
+            //     // width: 1.47rem;
+            //     // height: .28rem;
+            //     font-size: .30rem;
+            //     line-height: .79rem;
+            //     letter-spacing: 0px;
+            //     color: #ea8cbc;
+            // }
+        }
+        .btn_box{
+            margin-top: .65rem;
+            width: 100%;
+            height: 2.31rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            button{
+                height: .79rem;
+                border-radius: .39rem;
+                font-size: .3rem;
+                color: #fff;
+                border: none;
+                outline: none;
+            }
+            .btn_login{
+                background: #e4a6c6;
+            }
+            .btn_cancle{
+                background: #ccc;
+            }
+        }
+        .tips{
+            display: none;
+        }
+    }
+}
+//隐藏邀请框
+.hideInvite{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 13.34rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #000;
+    display: none;
+    .content{
+        width: 5.37rem;
+        height: 3.81rem;
+        background: url(../images/bei_jing@2x.png) no-repeat;
+        background-size: cover;
+        border-radius: .35rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        position: absolute;
+        top: 3.9rem;
+        left: 50%;
+        margin-left: -2.685rem;
+        .inviteCode{
+            width: 3.2rem;
+            height: .8rem;
+            border-radius: .09rem;
+            border: solid .01rem #0b0b0b;
+            padding-left: .22rem;
+            margin-top: .9rem;
+        }
+        .accept{
+            width: 2.82rem;
+            height: .72rem;
+            border: none;
+            outline: none;
+            border-radius: .36rem;
+            background: #e4a6c6;
+            color: #fff;
+        }
+        .close_{
+            position: absolute;
+            width: .68rem;
+            height: .67rem;
+            background: url(../images/guan_bi2@2x.png) no-repeat;
+            background-size: cover;
+            left: 50%;
+            bottom: -.8rem;
+            margin-left: -.34rem;
+        }
+    }
+}

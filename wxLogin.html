@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>蓝澳抓娃娃</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+    .wxlogin{
+    /* // background: url(../images/loading-h5_03.png) no-repeat; */
+    width: 100%;
+    background-size: cover;
+    /* display: none; */
+    }
+    .wxlogin img{
+        width: 100%;
+    }
+    </style>
+</head>
+<body>
+    <div class="wxlogin">
+        <img src="./images/loading-h5_03.png" alt="">
+    </div>
+    <script src="./js/ip.js"></script>
+    <script src="./js/jquery-3.1.1.min.js"></script>
+    <script>
+        function GetQueryString(name){
+            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if(r!=null){
+                return  unescape(r[2]);
+            }else{
+                return null;
+            } 
+        };
+        //获取用户登陆信息 跳转房间列表
+        var u = navigator.userAgent;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        var token = GetQueryString('token');
+        var userId = GetQueryString('memberId');
+        var index = GetQueryString('index');
+        localStorage.setItem('token',token);    
+        localStorage.setItem('userId',userId); 
+        if(index == 'null'){
+            console.log(index);
+        }else{
+            localStorage.setItem('index',index); 
+        }
+        if(isiOS){
+            $.ajax({
+                type:'post',
+                url:ip+'/icrane/api/member/info/updateMemberPhoneModel',
+                data:{
+                    "memberId":userId,
+                    "phoneModel":'iOS',
+                    "token":token,
+                },
+                dataType:'json',
+                success:function(){
+                }
+            })
+        }else{
+            $.ajax({
+                type:'post',
+                url:ip+'/icrane/api/member/info/updateMemberPhoneModel',
+                data:{
+                    "memberId":userId,
+                    "phoneModel":'android',
+                    "token":token,
+                },
+                dataType:'json',
+                success:function(){
+                }
+            })
+        }
+        $.ajax({
+            type:'post',
+            url:ip+'/icrane/api/member/info/getUserInfo',
+            data:{
+                "memberId":userId,
+                // "dollId":room.id,
+                "token":token,
+            },
+            dataType:'json',
+            success:function(data){
+                var res = data.resultData;
+                if(data.success){
+                    localStorage.setItem('info',JSON.stringify(res));
+                    window.location.href = './index_room.html';
+                }
+            }
+        })
+    </script>
+</body>
+</html>

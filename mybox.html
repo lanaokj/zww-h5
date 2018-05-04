@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title>蓝澳抓娃娃</title>
+    <script src="./js/rem.js"></script>    
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>    
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/mybox.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        .hide{
+            display: none!important;
+        }
+        .show{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0 1.5rem;
+        }
+
+        #addr div{
+            display: flex;
+            justify-content: space-between;
+        }
+        #addr div span{
+            line-height: .8rem;
+        }
+        #addr div,select{
+            height: .8rem;
+            width: 100%;
+            font-size: .25rem;
+        }
+        #saveAddr{
+            width: 2rem;
+            height: 1rem;
+            background: #ea8cbc;
+            color: #fff;
+            border-radius: .39rem;
+        }
+        .order{
+            display: flex;
+            flex-direction: column;
+            padding: 0 1rem;
+            justify-content: space-around;
+            height: 4rem;
+        }
+        .order button{
+            width: 2rem;
+            height: 1rem;
+            margin: 0 auto;   
+            background: #e4a6c6;
+            border-radius: .5rem;         
+            color: #fff;
+        }
+        .order :nth-child(1){
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <p><img class="back" src="images/fan_hui@2x.png" alt="">寄存箱</p>
+    </header>
+    <div id="addr" class="hide" data-toggle="distpicker">
+        <div><span>收件人</span><input class="receiverName" type="text"></div>
+        <div><span>联系电话</span><input class="receiverPhone" type="textPhone"></div>
+        <select id="eprovinceName" data-province="北京市" name="provinceName"></select>
+        <select id="ecityName" data-city="北京城区" name="cityName"></select>
+        <select id="edistrictName" data-district="朝阳区" name="districtName"></select><br>
+        <div><span>详细地址</span><input class="address" type="text"></div>
+        <button id="saveAddr">保存</button>
+
+    </div> 
+    <div class="order hide">
+        <div class="top">
+            <span class="orderName"></span>
+            <span class="orderPhone"></span>
+        </div>
+        <div class="addr">dsadasdasdasdsa</div>
+        <div><span>配送方式</span><span class="method"></span></div>
+        <button id="submit">提交订单</button>
+    </div>
+    <ul class="list">
+    </ul>
+
+
+        <div class="choose">
+            <p>需下载APP后<br/>在个人-寄存箱选择发货</p>
+            <div class="yesOrNo">
+                <a href="javascript:;" class="cancle">取消</a>
+                <a href="javascript:;" id="download">去下载</a>
+            </div>
+        </div>
+    <!-- </div> -->
+    <div class="noneList">
+            您还没有抓中过呢~快去抓吧~
+    </div>
+    <div class="exchange">
+        <button id="Deliver">发货</button>
+        <button id="exchange">兑换</button>
+    </div>
+    <script src="./js/jquery-3.1.1.min.js"></script>
+    <script src="./js/zepto.min.js"></script>
+    <script src="./js/ip.js"></script>
+    <script src="./js/ui.js"></script>
+    <script src="./js/distpicker.js"></script>
+    <script src="./js/main.js"></script>
+    <script>
+        var order = {};
+        var TIME = new Date().getTime() /1000;
+        var u = navigator.userAgent;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        $('#download').on('touchend',function(){
+        // alert(1111);
+            console.log(isiOS,isAndroid);
+            if(isiOS){
+                window.open("https://itunes.apple.com/cn/app/365%E6%8A%93%E5%A8%83%E5%A8%83/id1314921684?mt=8");
+            }else{
+                window.open("http://a.app.qq.com/o/simple.jsp?pkgname=com.wanyiguo.zww365");
+            }
+        });
+        // var room = JSON.parse(localStorage.getItem('room'));
+        var token = localStorage.getItem('token');  
+        var user = JSON.parse(localStorage.getItem('info'));
+        var info = JSON.parse(localStorage.getItem('info'));
+        console.log(info.mobile)
+        var check_val = [];
+        var newCheck_val = [];
+        console.log(user);
+        window.onload = function(){
+            $.ajax({
+                type:'post',
+                url:ip+'/icrane/api/doll/order/getList',
+                data:{
+                    "memberId":user.id,
+                    "token":token,
+                    orderStatus:'寄存中'
+                },
+            dataType:'json',
+                success:function(data){
+                    if(data.success){
+                        console.log(data);
+                    var res = data.resultData;
+                    if(res.length == 0){
+                        $('.noneList').show()
+                    }
+                    var info = '';
+                    for(var i = 0 ;i<res.length;i++){
+                        // if(res[i].dollOrder.status == '已兑换'){
+                        //     info += '<li class="item"><img src="'+res[i].doll.tbimgRealPath+'" alt=""><div class="detail"><span>'+res[i].doll.name+'</span><span>可兑换'+res[i].dollOrder.dollRedeemCoins+'Hi币</span></div><div class="box"><span class="day">'+res[i].dollOrder.status+'</span></div></li>'
+                        // }else{
+                            // console.log(Date.parse(res[i].dollOrder.stockValidDate.replace(/-/g,"/"))/1000,TIME);
+                            var orderTime = Date.parse(res[i].dollOrder.stockValidDate.replace(/-/g,"/"))/1000;
+                            var day = (orderTime-TIME) /86400;
+                            // console.log(day);
+                            var newDay = Math.ceil(day);
+                            info += '<li class="item"><img src="'+res[i].doll.tbimgRealPath+'" alt=""><div class="detail"><span>'+res[i].doll.name+'</span><span>可兑换'+res[i].dollOrder.dollRedeemCoins+'Hi币</span></div><div class="checkbox"><div class="downTime"><i class="time">'+newDay+'天</i><span class="day">'+res[i].dollOrder.status+'</span></div><input name="exchange" type="checkbox" value="'+res[i].dollOrder.id+'"><i class="icon"></i></div></li>'
+                            
+                        // }
+                    }
+                    $(info).appendTo($('.list'))
+                    }
+                    
+                }
+            })
+        }
+
+
+
+        function fun(){
+            obj = document.getElementsByName("exchange");
+            for(k in obj){
+                if(obj[k].checked)
+                    check_val.push(obj[k].value);
+                // if(obj[k].checked == false)
+                //     check_val.remove(obj[k].value);
+            }
+            console.log(check_val);
+            // alert(check_val);
+            if(!check_val.length){
+                mizhu.alert('','请选择要兑换的娃娃')
+            }else{
+                mizhu.confirm('', '确定要兑换成Hi币吗', function(flag) {
+                    if(flag) {
+                        $.ajax({
+                            type:'post',
+                            url:ip+'/icrane/api/charge/redeemCoins',
+                            data:{
+                                memberId:user.id,
+                                orderIds:check_val.toString(),
+                                token:token,
+                            },
+                            dataType:'json',
+                            success:function(data){
+                                if(data.success){
+                                    mizhu.toast('兑换成功',1500);
+                                    check_val = [];
+                                    setTimeout(function(){
+                                        window.location.reload()
+                                    },1500)
+                                }
+                            }
+                        })
+                    }
+                });  
+            }
+        }
+        //发货
+        function fun1(){
+            obj = document.getElementsByName("exchange");
+            for(k in obj){
+                if(obj[k].checked)
+                    check_val.push(obj[k].value);
+                // if(obj[k].checked == false)
+                //     check_val.remove(obj[k].value);
+            }
+            console.log(check_val);
+            newCheck_val = check_val;
+            if(!check_val.length){
+                mizhu.alert('','请选择要发货的娃娃')
+            }else{
+                mizhu.confirm('', '确定要发货吗', function(flag) {
+                    if(flag) {
+                        $('.exchange').hide();
+                        
+                        $.ajax({
+                            type:'post',
+                            url:ip+'/icrane/api/doll/order/beforeSendDoll',
+                            data:{
+                                memberId:user.id,
+                                orderIds:check_val.toString(),
+                                token:token,
+                            },
+                            dataType:'json',
+                            success:function(data){
+                                if(data.success){
+                                    console.log(data,newCheck_val)
+
+                                    var order = JSON.parse(localStorage.getItem('addr'));
+                                    var length = order.length;
+                                    var order = order[length-1];
+                                    $('.list').hide();
+                                    $('.order').removeClass('hide');
+                                    $('.orderName').text(order.receiverName)
+                                    $('.orderPhone').text(order.receiverPhone)
+                                    $('.addr').text(order.province + order.city + order.county + order.street)
+                                    $('.method').text(data.resultData.details)
+                                    //提交订单
+                                    $('#submit').on('click',function(){
+                                        $.ajax({
+                                        type:'post',
+                                        url:ip+'/icrane/api/doll/order/sendDoll',
+                                        data:{
+                                            memberId:user.id,
+                                            orderIds:newCheck_val.toString(),
+                                            token:token,
+                                            addrId:order.id,
+                                        },
+                                        dataType:'json',
+                                        success:function(data){
+                                            if(data.success){
+                                                mizhu.alert('',data.message)
+                                                setTimeout(function(){
+                                                    window.location.href = './mybox.html';
+                                                },1000)
+                                            }
+                                        }
+                                    })
+                                    })
+                                    
+                                }else if(data.message == '您当前累计充值金额未达到9.9元，不满足发货条件哦！'){
+                                    mizhu.alert('','您当前累计充值金额未达到9.9元，不满足发货条件哦！')
+                                }
+                            }
+                        })
+                    }
+                });  
+            }
+        }
+        //添加发货地址
+        $('.top,.addr').on('click',function(){
+            $('#addr').removeClass('hide').addClass('show');
+            $('.order').addClass('hide');
+        })
+        $('#Deliver').on('click',function(){
+            if(info.mobile == ''){
+                mizhu.confirm('','发货需要绑定手机号,是否立即去绑定?',function(flag){
+                    if(flag){
+                            window.open("./linkmobile.html");
+                    }
+                })
+            }else{
+                $.ajax({
+                    type:'post',
+                    url:ip+'/icrane/api/addr/findAddr',
+                    data:{
+                        memberId:user.id,
+                        token:token,
+                    },
+                    dataType:'json',
+                    success:function(data){
+                        if(data.success){
+                            var addr = data.resultData;
+                            var length = addr.length;
+                            var order = addr[length-1];
+                            console.log(order);
+                            localStorage.setItem('addr',JSON.stringify(addr));
+                        }else{
+                            mizhu.confirm('','您还没有填写收货地址，是否立即去填写',function(flag){
+                        if(flag){
+                            $('#addr').removeClass('hide').addClass('show');
+                        }
+                        })
+                        }
+                    }
+                })
+                fun1();
+            }
+            
+        })
+        $(document).on('click','.w-btn',function(){
+            check_val = [];
+        })
+        $('#exchange').on('click',function(){
+            fun();
+        })
+        $('.back').on('click',function(){
+            window.location.href = './personal.html';
+        })
+        $('.cancle').on('click',function(){
+            $('.choose').hide();
+            return false;
+        });
+        $(document).on('click','.delivery',function(){
+            $('.choose').show();
+        })
+        // $('.icon').on('click',function(){
+        //     $(this).addClass('activeIcon');
+        //     console.log(1);
+        // })
+        $(document).on('click','input[type=checkbox]',function(){
+            $(this).next().toggleClass('activeIcon');
+        })
+        $('#saveAddr').on('click',function(){
+            var receiverName = $('.receiverName').val()
+            var receiverPhone = $('.receiverPhone').val()
+            var province = $("#eprovinceName").find("option:selected").text();  
+            var city = $("#ecityName").find("option:selected").text();  
+            var county = $("#edistrictName").find("option:selected").text();
+            var street = $('.address').val();
+            $.ajax({
+                type:'post',
+                url:ip+'/icrane/api/addr/insertAddr',
+                data:{
+                    token:token,
+                    memberId : user.id,
+                    receiverName : receiverName,
+                    receiverPhone : receiverPhone,
+                    province : province,
+                    city : city,
+                    county : county,
+                    street : street
+                },
+                dataType:'json',
+                success:function(data){
+                    window.location.href = './mybox.html'
+                }
+            })
+        })
+
+        //微信分享jssdk
+    $.ajax({
+        type:'post',
+        url:ip+'/icrane/api/wx/onMenuShareTimeline',
+        data:{
+            'url':window.location.href.split('#')[0],
+        },
+        dataType:'json',
+        success:function(res){
+            console.log(res)
+            var timestamp = res.resultData.timestamp,
+                nonceStr = res.resultData.noncestr,
+                signature = res.resultData.sign,
+                appId = res.resultData.appId;
+            wx.config({
+                // url:window.location.href.split('#')[0],
+                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                appId: appId, // 必填，公众号的唯一标识
+                timestamp: timestamp, // 必填，生成签名的时间戳
+                nonceStr: nonceStr, // 必填，生成签名的随机串
+                signature: signature,// 必填，签名
+                jsApiList: ['onMenuShareAppMessage','onMenuShareTimeline','onMenuShareQQ','onMenuShareQZone'] // 必填，需要使用的JS接口列表
+            });
+            wx.ready(function(){
+                // alert(1);
+                //分享到朋友
+                wx.onMenuShareAppMessage({
+                    title: '哇~抓娃娃居然点开就能玩,抓到了还一个包邮送到家!', // 分享标题
+                    desc: '在线抓娃娃,点开就能玩!抓到了还一个包邮送到家!超多娃娃!激光瞄准', // 分享描述
+                    link: 'http://47.106.39.237:8080/lanaokj/sharePage.html?token='+token+'&userId='+user.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                    imgUrl: 'http://zww-image-dev.oss-cn-shanghai.aliyuncs.com/238640877592622509.jpg', // 分享图标
+                    type: '', // 分享类型,music、video或link，不填默认为link
+                    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                    success: function () {
+                    // 用户确认分享后执行的回调函数
+                        // alert(1);
+                    },
+                    cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                        // alert(2);
+                    }
+                });
+                //分享到朋友圈
+                wx.onMenuShareTimeline({
+                    title: '哇~抓娃娃居然点开就能玩,抓到了还一个包邮送到家!', // 分享标题
+                    link: 'http://47.106.39.237:8080/lanaokj/sharePage.html?token='+token+'&userId='+user.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                    imgUrl: 'http://zww-image-dev.oss-cn-shanghai.aliyuncs.com/238640877592622509.jpg', // 分享图标
+                    success: function () {
+                    // 用户确认分享后执行的回调函数
+                    },
+                    cancel: function () {
+                        // 用户取消分享后执行的回调函数
+                    }
+                });
+                //分享到QQ
+                wx.onMenuShareQQ({
+                    title:'哇~抓娃娃居然点开就能玩,抓到了还一个包邮送到家!', // 分享标题
+                    desc: '超多萌娃!激光瞄准!一个就包邮!蓝澳科技,赶紧点开一起玩吧!', // 分享描述
+                    link: 'http://47.106.39.237:8080/lanaokj/sharePage.html?token='+token+'&userId='+user.id, // 分享链接
+                    imgUrl: 'http://zww-image-dev.oss-cn-shanghai.aliyuncs.com/238640877592622509.jpg', // 分享图标
+                    success: function () {
+                    // 用户确认分享后执行的回调函数
+                    },
+                    cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                    }
+                });
+                //分享到QQ空间
+                wx.onMenuShareQZone({
+                    title: '哇~抓娃娃居然点开就能玩,抓到了还一个包邮送到家!', // 分享标题
+                    desc: '超多萌娃!激光瞄准!一个就包邮!蓝澳科技,赶紧点开一起玩吧!', // 分享描述
+                    link: 'http://47.106.39.237:8080/lanaokj/sharePage.html?token='+token+'&userId='+user.id, // 分享链接
+                    imgUrl: 'http://zww-image-dev.oss-cn-shanghai.aliyuncs.com/238640877592622509.jpg', // 分享图标
+                    success: function () {
+                    // 用户确认分享后执行的回调函数
+                    },
+                    cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                    }
+                });
+                wx.error(function(){
+                    // alert(2);
+                });
+            })
+        }
+    })
+    </script>
+</body>
+</html>

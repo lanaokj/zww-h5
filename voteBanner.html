@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/reset.css">
+    <script src="./js/rem.js"></script>
+    <title>以小换大</title>
+    <style>
+        .container{
+            width: 100%;
+            position: relative;
+        }
+        img{
+            display: block;
+        }
+        #goVote{
+            position: absolute;
+            bottom: 3.7rem;
+            left: 50%;
+            margin-left: -1rem;
+            display: block;
+            width: 2rem;
+            height: 1rem;
+            /* background: pink; */
+        }
+        .goQQ{
+            width: 100px;
+            height: 100px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="./images/changeBig.jpg" alt="" border="0" width="100%">
+        <a id="goVote" href="javascript:;"></a>
+        <!-- <a class="goQQ" href="mqqwpa://im/chat?chat_type=wpa&uin=1009803794&version=1&src_type=web&web_src=bjhuli.com">点击跳转聊天</a> -->
+        <a class="goQQ" href="mqqapi://card/show_pslcard?src_type=internal&version=1&uin=281869154&card_type=group&source=external">点击跳转聊天</a>
+    </div>
+    <script>
+        var goVote = document.getElementById('goVote');
+        goVote.onclick = function(){
+            window.location.href = 'https://tp.wjx.top/jq/20623948.aspx';
+        }
+    </script>
+</body>
+</html>

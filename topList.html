@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title>排行榜</title>
+    <script src="./js/rem.js"></script>    
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/topList.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        .border{
+            background: #f0f0f0;
+        }
+        .tabs{
+            border-radius: 15px 15px 0 0 ;
+        }
+        .tabs,.tab{
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="border">
+        <div class="tabs">
+            <a href="javascript:;" class="active">充值榜</a>
+            <a href="javascript:;">邀请榜</a>
+            <a href="javascript:;">抓取榜</a>
+        </div>
+    </div>
+
+    <div class="tab">
+        <div class="list1 current">
+            <div class="text">
+                <span>排名</span>
+                <span>邀请好友数</span>
+                <span>奖励</span>
+            </div>
+            <ul class="superUser">
+
+            </ul>
+            <ul class="list">
+            </ul>
+        </div>
+        <div class="list2">
+            <div class="text">
+                <span>排名</span>
+                <span>充值指数</span>
+                <span>奖励</span>
+            </div>
+            <ul class="superUser">
+            </ul>
+            <ul class="list">
+            </ul>
+        </div>
+        <div class="list3">
+            <div class="text">
+                <span>排名</span>
+                <span>抓取数量</span>
+                <span>奖励</span>
+            </div>
+            <ul class="superUser">
+            </ul>
+            <ul class="list">
+            </ul>
+        </div>
+    </div>
+
+    <script src="./js/jquery-3.1.1.min.js"></script>
+    <script src="./js/ui.js"></script>    
+    <script src="./js/zepto.min.js"></script>
+    <script src="./js/topList.js"></script>
+</body>
+</html>

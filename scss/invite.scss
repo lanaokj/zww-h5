@@ -1,0 +1,225 @@
+header {
+    width: 100%;
+    height: .87rem;
+    background: #e4a6c6;
+    color: #fff;
+    position: relative;
+    P {
+        height: 100%;
+        position: relative;
+        line-height: .87rem;
+        text-align: center;
+
+    }
+    img {
+        width: .42rem;
+        height: .42rem;
+        position: absolute;
+        left: .26rem;
+        top: .2rem;
+    }
+    .enterInvite{
+        position: absolute;
+        right: 0;
+        top: .2rem;
+        font-size: .3rem;
+        right: .2rem;
+    }
+}
+
+.border{
+    // height: 1rem;
+    position: relative;
+}
+.top{
+    background: url(../images/topinvite.png);
+    background-size: 3rem .25rem;
+    width: 100%;
+    height: .25rem;
+    position: absolute;
+    top: 0;
+}
+.bottom{
+    background: url(../images/topinvite.png);
+    background-size: 3rem .25rem;
+    width: 100%;
+    height: .25rem;
+    position: fixed;
+    bottom: 0;
+}
+.left{
+    background: url(../images/left.png);
+    background-size: .33rem .73rem;
+    width: .25rem;
+    height: 100%;
+    position: fixed;
+    left: 0;
+}
+.right{
+    background: url(../images/left.png);
+    background-size: .33rem .73rem;
+    width: .25rem;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    z-index: 2;
+}
+.box{
+    position: relative;
+    width: 100%;
+    height: 2rem;
+}
+.b300{
+    width:6.73rem;
+    height: .61rem;
+    // margin: 1rem 1rem;
+    position: absolute;
+    top: 50%;
+    margin-top: -.305rem;
+    left: 50%;
+    margin-left: -3.36rem;
+}
+.myself{
+    height: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    :nth-child(2){
+        color: #009797;
+    }
+}
+.myInvite{
+    color: #ff85bb;
+    font-weight: 600;
+}
+.wechatShare{
+    margin-top: .3rem;
+    img{
+        display: block;
+        width: 1.5rem;
+        height: 1.5rem;
+        margin: 0 auto;
+    }
+}
+.alreadyInvite{
+    height: 1rem;
+    .people{
+        font-size: .3rem;
+        height: 1rem;
+        border: #e4a6c6 .1rem solid;
+        border-right: none;
+        border-radius: .5rem 0 0 .5rem;
+        width: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        right: 0rem;
+        span{
+            margin: 0 .2rem;
+            width: 1rem;
+            text-align: center;
+        }
+    }
+}
+.inviteRule{
+    padding-top: .3rem;
+    height: 1.7rem;
+    img{
+        position: absolute;
+        width: 2.5rem;
+        left: 50%;
+        margin-left: -1.25rem;
+    }
+}
+.inviteText{
+    font-size: .3rem;
+    margin-bottom: .3rem;
+    p{
+        width: 80%;
+        text-align: left;
+        margin: 0 auto .3rem;
+
+    }
+}
+.hide{
+    display: none;
+}
+.hideInvite{
+    width: 100%;
+    height: 19rem;
+    position: fixed;
+    background: #000 url(../images/shareinh5.png) no-repeat;
+    background-size: 100%;
+    opacity: .6;
+    z-index: 9999;
+    .closeShare {
+        width: 3rem;
+        height: 1rem;
+        position: absolute;
+        top: 3.9rem;
+        left: 50%;
+        margin-left: -1.5rem;
+    }
+}
+.invite{
+    width: 4rem;
+    height: 2.4rem;
+    position: absolute;
+    top:5rem;
+    left: 50%;
+    margin-left: -2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    .box{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    input{
+        border: #e4a6c6 solid .05rem;
+        width: 3rem;
+        height: .8rem;
+        border-radius: .2rem;
+        padding-left: .2rem;
+    }
+    button{
+        width: 2rem;
+        height: .8rem;
+        border: none;
+        background: #e4a6c6;
+        border-radius: 1rem;
+        font-size: .3rem;
+        color: #fff;
+        outline: none;
+    }
+}
+.cute1{
+    width: 1.28rem;
+    height: .61rem;
+}
+.cute2{
+    width: 6.4rem;
+    height: 3.33rem;
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+    left: 50%;
+    margin-left: -3.2rem;
+}
+input::-moz-placeholder, textarea::-moz-placeholder {
+    color: #999;; }
+  
+  input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+    color: #999;; }
+  
+  input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: #999;; }
+.qrImg{
+    display: none;
+    img{
+        width: 100%;
+    }
+}

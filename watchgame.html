@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes"> 
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <meta name="viewport" content="initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, user-scalable=no"> -->
+    <!-- <meta name="viewport" content="user-scalable=no"/> -->
+    <title>蓝澳抓娃娃</title>
+    <script src="./js/rem.js"></script>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/watchgame.css?v1">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+    <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script> 
+    <style>
+        #data-url,#play{
+            position: absolute;
+            left: -999rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- 分享蒙版 -->
+    <div class="BOX">
+        <div class="otherCases hide">
+            <input type="text" placeholder="请输入您碰到的具体情况" class="otherText">
+            <button id="submit">提交</button>
+            <a href="javascript:;" class="closeSubmit"></a>
+        </div>
+    </div>
+
+    <div class="hideShare">
+        <i class="closeShare"></i>
+    </div>
+    <input type="text" id="data-url" style="width: 400px;color: black">
+    <a href="javascript:play()" id="play" onclick="play()"><input type="button" name="play" value="play"></a>
+    <canvas id="video-canvas"></canvas>
+    <!-- head -->
+    <header>
+        <a href="javascript:;" class="back"></a>
+        <p class="roomName"></p>
+        <img src="./images/share.png" alt="" id="share">
+    </header>
+    <!-- 直播 -->
+    <div class="liveVideo">
+        <div class="music"><img src="./images/music.png" alt=""></div>
+        <div class="playMusic"><img src="./images/nomusic.png" alt=""></div>
+        <div class="network"><img src="./images/network2.png" alt=""></div>
+        <div class="servicing hide">
+            <ul class="repairList">
+                <!-- <li>娃娃被抓空了</li>
+                <li>上不了机</li> -->
+            </ul>
+            <p id="cancle">取消</p>
+        </div>
+        <a class="suggestion" href="javascript:;">
+            <img src="./images/baoxiu@2x.png" alt="">
+        </a>
+        <span id="wait"></span>
+        <div class="header">
+            <div class="Icon">
+                <!-- <img id="img1" src="./images/logo@2x.png" alt="">
+                <img id="img2" src="./images/logo@2x.png" alt="">
+                <img id="img3" src="./images/logo@2x.png" alt=""> -->
+            </div>
+            <div class="numBox">
+                <!-- <img src="./imaren_shu@2x.png.png" alt=""> -->
+                <span id="num"></span>
+            </div>
+        </div>
+        <!-- //抓取结果 -->
+        <div class="catchSuccess">
+            <a href="javascript:;" class="close"></a>
+            <img src="images/zhua_zhong_le！@2x.png" alt="">
+            <img class="success" src="images/biao_qing@2x.png" alt="">
+            <span>您好棒呢，抓到了一个娃娃哦</span>
+            <div class="btn">
+                <button class="flaunt">我要炫耀</button>
+                <button class="again"></button>
+            </div>
+        </div>
+        <div class="catchFaild">
+            <a href="javascript:;" class="close"></a>
+            <img src="images/hao_ke_xi！@2x.png" alt="">
+            <img class="faild" src="images/shi_bai_biao_qing@2x.png" alt="">
+            <span>差一点就抓到了，要表再试试看？</span>
+            <div class="btn">
+                <button class="please">请大神替我抓</button>
+                <button class="again"></button>
+            </div>
+        </div>
+        <div class="loadingGame">
+
+        </div>
+        <!-- 未开始游戏的状态 -->
+        <div class="handleInGame">
+            <div class="sendMsg">发言</div>
+            <!-- 别人游戏中 观看  -->
+            <div class="otherInGame">
+                <div class="pic"><img id="playmember" src="./images/logo@2x.png" alt=""></div>
+                <div class="nameAndState">
+                    <span class="userName">读取中..</span>
+                    <span class="gameState"></span>
+                </div>
+            </div>
+            <!-- 游戏空闲中，可投币开始游戏 -->
+            <div class="startGame">
+                <div class="price">
+                    <img src="./images/Hicoin@2x.png" alt="">
+                    ×<span id="price">19</span>
+                </div>
+                <span class="begin">开始游戏</span>
+            </div>
+            <div class="balance">
+                <span class="recharge">充值</span>
+                <span class="balanceNum">余额1234</span>
+            </div>
+
+        </div>
+
+        <div class="play">
+            <div class="control">
+                <button id="top"></button>
+                <button id="right"></button>
+                <button id="left"></button>
+                <button id="down"></button>
+            </div>
+            <div class="clawBox">
+                <span class="downTime">30s</span>
+                <button id="claw"><img src="./images/GO@2x.png" alt=""></button>
+            </div>
+        </div>
+
+
+        <!-- //开始游戏后的操作按钮 -->
+    </div>
+    <ul class="gameDetails">
+        <li class="active">最近抓中记录</li>
+        <li >礼物详情</li>
+    </ul>
+    <ul class="record current">
+        
+    </ul>
+    <div class="photo">
+        <!-- <div class="giftDetails">
+            <p class="dollName">乖乖小猪乐乐-T恤</p>
+            <ul>
+                <li><span>尺寸</span><span>1cm</span></li>
+                <li><span>名字</span><span>乖乖涛涛熊蓝白条纹</span></li>
+                <li><span>材质</span><span>毛</span></li>
+                <li><span>备注</span><span>你猜</span></li>
+            </ul>
+        </div> -->
+    </div>
+    <!-- <div class="photo"></div>
+    <div class="photo"></div> -->
+    <!-- <div class="catchSuccess">
+        <img src="./imazhua_zhong_le！@2x.png.png" alt="">
+        <img class="success" src="./imabiao_qing@2x.png.png" alt="">
+        <span>您好棒呢，抓到了一个娃娃哦</span>
+        <button>再来一局(10s)</button>
+    </div>
+    <div class="catchFaild">
+        <img src="./imahao_ke_xi！@2x.png.png" alt="">
+        <img class="faild" src="./imashi_bai_biao_qing@2x.png.png" alt="">
+        <span>差一点就抓到了，要表再试试看？</span>
+        <button>再来一局(10s)</button>
+    </div> -->
+
+    <div class="hideContent">
+        <div class="hideRecharge">
+            <div class="hibi">
+                <span>我的余额</span>
+                <div class="number">
+                    <span class="num1"></span>
+                    <span>Hi币</span>
+                </div>
+                <img src="images/yi_tui_jin_bi@2x.png" alt="">
+            </div>
+            <ul class="list">
+                
+            </ul>
+            <a class="_close" href="javascript:;"></a>            
+        </div>
+    </div>
+    <!-- 背景音乐 -->
+    <audio id="bgmusic" src="./music/music1.mp3" autoplay loop class="bgm">
+    <script src="./js/jquery-3.1.1.min.js"></script>
+    <script src="./js/zepto.min.js"></script>
+    <script src="./js/ip.js"></script>
+    <!-- <script src="js/moment.min.js"></script> -->
+    <!-- <script src="js/socket.io.js"></script> -->
+    <script src="./js/watchgame.js?20180127"></script>
+    <script src="./js/jsmpeg.js"></script>
+    <script src="./js/ui.js"></script>
+    <script>
+        
+        function play() {
+        var canvas = document.getElementById('video-canvas');
+        var url = document.getElementById('data-url').value;
+        if (url.length == 0) {
+            url = "ws://pili-live-rtmp.zglhub.clouddn.com:1250/zglhub/zhuawawa.wsts"
+        }
+        //alert(url)
+        var player = new JSMpeg.Player(url, {canvas: canvas});
+        
+        }
+        $('#share').on('click',function(){
+            $('.hideShare').show();
+        })
+        $('.closeShare').on('click',function(){
+            $('.hideShare').hide();
+        })
+    </script>
+    <script>
+            var _mtac = {};
+            (function() {
+                var mta = document.createElement("script");
+                mta.src = "http://pingjs.qq.com/h5/stats.js?v2.0.2";
+                mta.setAttribute("name", "MTAH5");
+                mta.setAttribute("sid", "500600493");
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(mta, s);
+            })();
+            </script>
+</body>
+</html>
