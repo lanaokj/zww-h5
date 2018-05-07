@@ -7,20 +7,21 @@ var htmlmin=require("gulp-htmlmin");
 var imagemin=require("gulp-imagemin");
 // var babel = require("gulp-babel");  
 var reload= browserSync.reload;
+var fileName = "lanaokj";
 //sass
 gulp.task('scss',function(){
   return gulp.src('./scss/*.scss')
       .pipe(sourcemaps.init())
       .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
       .pipe(sourcemaps.write("./"))
-      .pipe(gulp.dest('./lanaokj/css'))
+      .pipe(gulp.dest('./' + fileName + '/css'))
       .pipe(gulp.dest('./css'))
       .pipe(reload({stream: true})); 
 })
 gulp.task("imagemin",function(){
     return gulp.src("images/*.*")
         .pipe(imagemin())
-        .pipe(gulp.dest("./lanaokj/images"));
+        .pipe(gulp.dest("./" + fileName + "/images"));
 })
 // gulp.task('scss',function(){
 //   return gulp.src('./scss/*.scss')
@@ -34,7 +35,7 @@ gulp.task("imagemin",function(){
 gulp.task("browserSync",function(){
     browserSync.init({
       server: {
-          baseDir: "./lanaokj"
+          baseDir: "./" + fileName
       }
     });
 })
@@ -42,7 +43,7 @@ gulp.task("uglify",function(){
   gulp.src('js/*.js')
   // .pipe(babel())
   .pipe(uglify())
-  .pipe(gulp.dest('./lanaokj/js')) 
+  .pipe(gulp.dest('./' + fileName + '/js'))
 })
 gulp.task("htmlmin",function(){
   var options = {
@@ -57,7 +58,7 @@ gulp.task("htmlmin",function(){
 };     
   return gulp.src("./*.html")
               .pipe(htmlmin(options))
-              .pipe(gulp.dest("./lanaokj"))
+              .pipe(gulp.dest("./" + fileName))
 })
 gulp.task('default',["scss","browserSync","htmlmin","uglify","imagemin"],function(){
   gulp.watch('scss/*.scss',["scss"]);
