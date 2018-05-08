@@ -90,8 +90,8 @@
                     //分享到QQ
                     wx.onMenuShareQQ({
                         title:'哇~抓娃娃居然点开就能玩,抓到了还一个包邮送到家!', // 分享标题
-                        desc: '超多萌娃!激光瞄准!一个就包邮!蓝澳抓娃娃,赶紧点开一起玩吧!', // 分享描述
-                        link: "http://h5.365zhuawawa.com/H5/qrImg.html?token="+token+"&userId="+user.id, // 分享链接
+                        desc: '超多萌娃!激光瞄准!一个就包邮!网搜抓娃娃,赶紧点开一起玩吧!', // 分享描述
+                        link: "http://zww.lanao.fun/lanaokj/qrImg.html?token="+token+"&userId="+user.id, // 分享链接
                         imgUrl: 'http://zww-image-dev.oss-cn-shanghai.aliyuncs.com/238640877592622509.jpg', // 分享图标
                         success: function () {
                         // 用户确认分享后执行的回调函数
@@ -105,8 +105,8 @@
                     //分享到QQ空间
                     wx.onMenuShareQZone({
                         title: '哇~抓娃娃居然点开就能玩,抓到了还一个包邮送到家!', // 分享标题
-                        desc: '超多萌娃!激光瞄准!一个就包邮!蓝澳抓娃娃,赶紧点开一起玩吧!', // 分享描述
-                        link:"http://h5.365zhuawawa.com/H5/qrImg.html?token="+token+"&userId="+user.id, // 分享链接
+                        desc: '超多萌娃!激光瞄准!一个就包邮!网搜抓娃娃,赶紧点开一起玩吧!', // 分享描述
+                        link:"http://zww.lanao.fun/lanaokj/qrImg.html?token="+token+"&userId="+user.id, // 分享链接
                         imgUrl: 'http://zww-image-dev.oss-cn-shanghai.aliyuncs.com/238640877592622509.jpg', // 分享图标
                         success: function () {
                         // 用户确认分享后执行的回调函数

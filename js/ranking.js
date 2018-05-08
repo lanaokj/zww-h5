@@ -79,7 +79,7 @@
                     //分享到朋友
                     wx.onMenuShareAppMessage({
                         title: '哇~抓娃娃居然点开就能玩,抓到了还一个包邮送到家!', // 分享标题
-                        desc: '超多萌娃!激光瞄准!一个就包邮!蓝澳抓娃娃,赶紧点开一起玩吧!', // 分享描述
+                        desc: '超多萌娃!激光瞄准!一个就包邮!网搜抓娃娃,赶紧点开一起玩吧!', // 分享描述
                         link: "http://dev.365zhuawawa.com/H5/", // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                         imgUrl: 'http://zww-image-dev.oss-cn-shanghai.aliyuncs.com/238640877592622509.jpg', // 分享图标
                         type: '', // 分享类型,music、video或link，不填默认为link
@@ -108,7 +108,7 @@
                     //分享到QQ
                     wx.onMenuShareQQ({
                         title: '哇~抓娃娃居然点开就能玩,抓到了还一个包邮送到家!', // 分享标题
-                        desc: '超多萌娃!激光瞄准!一个就包邮!蓝澳抓娃娃,赶紧点开一起玩吧!', // 分享描述
+                        desc: '超多萌娃!激光瞄准!一个就包邮!网搜抓娃娃,赶紧点开一起玩吧!', // 分享描述
                         link: 'http://dev.365zhuawawa.com/H5/', // 分享链接
                         imgUrl: 'http://zww-image-dev.oss-cn-shanghai.aliyuncs.com/238640877592622509.jpg', // 分享图标
                         success: function () {
@@ -121,7 +121,7 @@
                     //分享到QQ空间
                     wx.onMenuShareQZone({
                         title: '哇~抓娃娃居然点开就能玩,抓到了还一个包邮送到家!', // 分享标题
-                        desc: '超多萌娃!激光瞄准!一个就包邮!蓝澳抓娃娃,赶紧点开一起玩吧!', // 分享描述
+                        desc: '超多萌娃!激光瞄准!一个就包邮!网搜抓娃娃,赶紧点开一起玩吧!', // 分享描述
                         link: 'http://dev.365zhuawawa.com/H5/', // 分享链接
                         imgUrl: 'http://zww-image-dev.oss-cn-shanghai.aliyuncs.com/238640877592622509.jpg', // 分享图标
                         success: function () {

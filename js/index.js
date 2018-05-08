@@ -81,7 +81,7 @@
                             // alert(JSON.stringify(data.resultData));
                             localStorage.setItem('token',JSON.parse(JSON.stringify(data.resultData.token)));
                             localStorage.setItem('user',JSON.stringify(data.resultData));
-                            // window.location.href = "http://h5.365zhuawawa.com/H5/index_room.html";
+                            // window.location.href = "http://zww.lanao.fun/lanaokj/index_room.html";
                         //获取注册时间  时间戳 判断用户是否首次登陆
                             var registerDate = data.resultData.member.registerDate;
                             var registerDate = Date.parse(registerDate.replace(/-/g,"/"));
@@ -125,7 +125,7 @@
                         }
                     })
                 }else{
-                    window.location.href = 'http://p.365zhuawawa.com/?r=user/h5-wechat-login-t&url=http://h5.365zhuawawa.com/H5/&channel='+channel+'&memberID='+memberId;
+                    window.location.href = 'http://p.365zhuawawa.com/?r=user/h5-wechat-login-t&url=http://zww.lanao.fun/lanaokj/&channel='+channel+'&memberID='+memberId;
                 }
                 // console.log(true);
                 // return true;
