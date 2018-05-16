@@ -294,7 +294,7 @@
             success:function(data){
                 if(!data.success){
                     mizhu.alert('','您的登陆已失效,请重新登陆');
-                    window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx42ac1f22ae0225f3&redirect_uri=http%3A%2F%2Fsjl.natappvip.cc/icrane/api/h5login&response_type=code&scope=snsapi_userinfo#wechat_redirect';
+                    window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxcb4254f4b131fc12&redirect_uri=http%3A%2F%2Flanao.nat300.top/icrane/api/h5login&response_type=code&scope=snsapi_userinfo#wechat_redirect';
                 }
             }
         })
@@ -1017,7 +1017,7 @@
                         var outTradeNo = result.outTradeNo;
                         WeixinJSBridge.invoke(
                             'getBrandWCPayRequest', {
-                                "appId":"wx42ac1f22ae0225f3",     //公众号名称，由商户传入
+                                "appId":"wxcb4254f4b131fc12",     //公众号名称，由商户传入
                                 "timeStamp":result.timeStamp,         //时间戳，自1970年以来的秒数     
                                 "nonceStr":result.nonceStr, //随机串     
                                 "package":"prepay_id="+result.prepayId,     

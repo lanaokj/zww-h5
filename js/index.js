@@ -38,7 +38,7 @@
                     localStorage.clear();
                     localStorage.setItem('wechat','wechat');
                     // window.location.href = 'http://p.365zhuawawa.com/?r=app/red-packet&key=182a83ef3f34185d329562a36a1bf886';
-                    window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx42ac1f22ae0225f3&redirect_uri=http%3A%2F%2Fsjl.natappvip.cc/icrane/api/h5login&response_type=code&scope=snsapi_userinfo#wechat_redirect';
+                    window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxcb4254f4b131fc12&redirect_uri=http%3A%2F%2Flanao.nat300.top/icrane/api/h5login&response_type=code&scope=snsapi_userinfo#wechat_redirect';
                 }
             }
         })
