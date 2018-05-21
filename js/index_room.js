@@ -188,20 +188,23 @@
         success:function(data){
             if(data.success){
                 $('.loading').hide();
-                console.log(data);
                 var list = data.resultData;
                 console.log(list);
                 var roomListHtml = ''
                 for(var i = 0; i < list.length ; i ++){
+                    roomListHtml += '<div class="room-game"><img src="'+list[i].tbimgRealPath+'" alt=""><span class="wawa-name">'+list[i].name + '</span><div class="game-state">';
                     if(list[i].machineStatus == '空闲中'){
-                        roomListHtml += '<div class="room-game"><img src="'+list[i].tbimgRealPath+'" alt=""><span class="wawa-name">'+list[i].name+'</span><div class="game-state"><p class="status"><span>等你抓</span></p><p class="rightCoin"><span class="price">'+list[i].price+'</span></p></div></div>'  
+                        roomListHtml += '<p class="status"><span>等你抓</span></p>';
                     }else if(list[i].machineStatus == '游戏中'){
-                        roomListHtml += '<div class="room-game"><img src="'+list[i].tbimgRealPath+'" alt=""><span class="wawa-name">'+list[i].name+'</span><div class="game-state"><p class="status yellow"><span>游戏中</span></p><p class="rightCoin"><span class="price">'+list[i].price+'</span></p></div></div>'
+                        roomListHtml += '<p class="status yellow"><span>游戏中</span></p>';
                     }else{
-                        roomListHtml += '<div class="room-game"><img src="'+list[i].tbimgRealPath+'" alt=""><span class="wawa-name">'+list[i].name+'</span><div class="game-state"><p class="status red"><span>维修中</span></p><p class="rightCoin"><span class="price">'+list[i].price+'</span></p></div></div>'
+                        roomListHtml += '<p class="status red"><span>维修中</span></p>';
                     }
+                    roomListHtml += '<p class="rightCoin"><span class="price">'+list[i].price+'</span></p></div></div>';
                 }
+                /*
                 roomListHtml +='<div class="room-game download"><img src="./images/appExclusive@2x.png" class="app"><img src="./images/room1.jpg" alt=""><span class="wawa-name">蒙奇奇星座款</span><div class="game-state"><p class="status"><span>等你抓</span></p><p class="rightCoin"><span class="price">19</span></p></div></div><div class="room-game download"><img src="./images/appExclusive@2x.png" class="app"><img src="./images/room2.jpg" alt=""><span class="wawa-name">粉红豹</span><div class="game-state"><p class="status yellow"><span>游戏中</span></p><p class="rightCoin"><span class="price">29</span></p></div></div><div class="room-game download"><img src="./images/appExclusive@2x.png" class="app"><img src="./images/room3.jpg" alt=""><span class="wawa-name">柯基屁股挎包</span><div class="game-state"><p class="status"><span>等你抓</span></p><p class="rightCoin"><span class="price">19</span></p></div></div><div class="room-game download"><img src="./images/appExclusive@2x.png" class="app"><img src="./images/room4.jpg" alt=""><span class="wawa-name">玻尿酸鸭</span><div class="game-state"><p class="status"><span>等你抓</span></p><p class="rightCoin"><span class="price">15</span></p></div></div><div class="room-game download"><img src="./images/appExclusive@2x.png" class="app"><img src="./images/room5.jpg" alt=""><span class="wawa-name">超萌的阿狸</span><div class="game-state"><p class="status"><span>等你抓</span></p><p class="rightCoin"><span class="price">19</span></p></div></div><div class="room-game download"><img src="./images/appExclusive@2x.png" class="app"><img src="./images/room6.jpg" alt=""><span class="wawa-name">露娜猫拖鞋</span><div class="game-state"><p class="status yellow"><span>游戏中</span></p><p class="rightCoin"><span class="price">19</span></p></div></div>'
+               */
                 // console.log(roomListHtml)
                 $(roomListHtml).appendTo($('.mainpage').find('.room-list').eq(0));
                 //需要根据房间状态渲染不同颜色的状态灯！！
