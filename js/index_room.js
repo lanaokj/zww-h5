@@ -314,137 +314,131 @@
 
     //微信支付
     //微信支付
-    // if(wechat !== 'wechat'){
-    //     $('.list').on('click','li',function(){
-    //         mizhu.toast('正在生成订单',2500);
-    //         var $index = $(this).index();
-    //         var this_index = chargeArr[$index].id;
-    //         console.log(this_index);
-    //         // alert(wechat)
-            
-    //         $.ajax({
-    //             type:'post',
-    //             url:ip+'/icrane/api/wx/pay',
-    //             data:{
-    //                 "token":token,
-    //                 "chargeruleid":this_index,
-    //                 "memberId":userId,
-    //                 "IP":returnCitySN['cip'],
-    //             },
-    //             dataType:'json',
-    //             success:function(res){
-    //                 console.log(res);
-    //                 // alert(1);
-    //                 if(res.success){
-    //                     window.location.href = res.resultData.mwebUrl+'?'+Math.random();
-    //                     // console.log(data);
-    //                     // alert('充值成功后记得刷新页面查看哦~')
-    //                 }
-    //             }
-    //         })
-    //     })
-    // }else{
+   //  if(wechat !== 'wechat'){
+    //    $('.list').on('click','li',function(){
+         //    mizhu.toast('正在生成订单',2500);
+          //   var $index = $(this).index();
+        //     var this_index = chargeArr[$index].id;
+    //    })
+   // }else{
         //充值
-        $('.list').on('click','li',function(){
+      $('.list').on('click','li',function(){
             var $index = $(this).index();
             var this_index = chargeArr[$index].id;
-            // console.log(this_index);
-            // alert(user.member.openId);
-            $.ajax({
-                type:'post',
-                url:ip+'/icrane/api/wx/pay',
-                data:{
-                    "token":token,
-                    "chargeruleid":this_index,
-                    "memberId":userId,
-                    "IP":'老子是公众号'
-                    // "IP":returnCitySN['cip'],
-                },
-                dataType:'json',
-                success:function(res){
-                    // alert(JSON.stringify(res));
-                    // alert(1);
-                    if(res.success){
-                        // window.location.href = res.resultData.mwebUrl+'?'+Math.random();
-                        // var res = JSON.stringify(res);
-                        var data = JSON.stringify(res.resultData);
-                        var result = JSON.parse(data);
-                        var outTradeNo = result.outTradeNo;
-                        // alert(outTradeNo);
-                        // alert(data);
-                        // alert(result);
-                        // alert(result.paySign);
-                        // alert(result.prepayId);
-                        
-                        // alert('充值成功后记得刷新页面查看哦~')
-                        WeixinJSBridge.invoke(
-                            'getBrandWCPayRequest', {
-                                "appId":"wxcb4254f4b131fc12",     //公众号名称，由商户传入
-                                "timeStamp":result.timeStamp,         //时间戳，自1970年以来的秒数     
-                                "nonceStr":result.nonceStr, //随机串     
-                                "package":"prepay_id="+result.prepayId,     
-                                "signType":"MD5",         //微信签名方式：     
-                                "paySign":result.paySign //微信签名 
-                            },
-                            function(res){
-                                // alert(JSON.stringify(res));
-                                if(res.err_msg == "get_brand_wcpay_request:ok" ) {
-                                    $.ajax({
-                                        type:'post',
-                                        url:ip+'/icrane/api/charge/successfulRechargeRecords',
-                                        data:{
-                                            "token":token,
-                                            "memberId":userId,
-                                            mchOrderNo:outTradeNo,
-                                        },
-                                        dataType:'json',
-                                        success:function(data){
-                                            mizhu.alert('',data.message);
-                                            chargeArr=[];
-                                            $('.list').empty();
-                                            reCharge();
-                                        }
-                                    })
-                                    $.ajax({
-                                        type:'post',
-                                        url:ip+'/icrane/api/member/info/getUserInfo',
-                                        data:{
-                                            "memberId":user.id,
-                                            // "dollId":room.id,
-                                            "token":token,
-                                        },
-                                        success:function(data){
-                                            var res = data.resultData;
-                                            $('.num').text(res.coins);
-                                            // $('#mycoins').text(res.coins);
-                                        }
-                                    })
-                                }else if(res.err_msg == "get_brand_wcpay_request:cancel"){
-                                    mizhu.alert('','您取消了支付');
-                                }else{
-                                    mizhu.alert('','支付失败')
-                                }     // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。 
-                            }
-                        );
-                        if (typeof WeixinJSBridge == "undefined"){
-                        if( document.addEventListener ){
-                            document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
-                        }else if (document.attachEvent){
-                            document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
-                            document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
-                        }
-                        }else{
-                        onBridgeReady();
-                        }
-                        // alert(1);
-                    }else{
-                        mizhu.alert('',res.message);
-                    }
-                }
-            })
+           if(wechat !== 'wechat'){ //支付宝支付
+              $.ajax({
+                 type:'post',
+                 url:ip+'/icrane/api/ali/pay',
+                 data:{
+                     "token":token,
+                     "chargeruleid":this_index,
+                     "memberId":userId,
+                 },
+                 dataType:'json',
+                 success:function(res){
+                     if(res.success){
+                         var data = JSON.stringify(res.resultData);
+                         var result = JSON.parse(data);
+                         var outTradeNo = result.outTradeNo;
 
+
+                     }else{
+                         mizhu.alert('',res.message);
+                     }
+                 }
+             })
+
+          }else {//微信支付
+             $.ajax({
+                 type:'post',
+                 url:ip+'/icrane/api/wx/pay',
+                 data:{
+                     "token":token,
+                     "chargeruleid":this_index,
+                     "memberId":userId,
+                     "IP":'老子是公众号'
+                     // "IP":returnCitySN['cip'],
+                 },
+                 dataType:'json',
+                 success:function(res){
+                     // alert(JSON.stringify(res));
+                     // alert(1);
+                     if(res.success){
+                         // window.location.href = res.resultData.mwebUrl+'?'+Math.random();
+                         // var res = JSON.stringify(res);
+                         var data = JSON.stringify(res.resultData);
+                         var result = JSON.parse(data);
+                         var outTradeNo = result.outTradeNo;
+
+                         // alert('充值成功后记得刷新页面查看哦~')
+                         WeixinJSBridge.invoke(
+                             'getBrandWCPayRequest', {
+                                 "appId":"wxcb4254f4b131fc12",     //公众号名称，由商户传入
+                                 "timeStamp":result.timeStamp,         //时间戳，自1970年以来的秒数
+                                 "nonceStr":result.nonceStr, //随机串
+                                 "package":"prepay_id="+result.prepayId,
+                                 "signType":"MD5",         //微信签名方式：
+                                 "paySign":result.paySign //微信签名
+                             },
+                             function(res){
+                                 // alert(JSON.stringify(res));
+                                 if(res.err_msg == "get_brand_wcpay_request:ok" ) {
+                                     $.ajax({
+                                         type:'post',
+                                         url:ip+'/icrane/api/charge/successfulRechargeRecords',
+                                         data:{
+                                             "token":token,
+                                             "memberId":userId,
+                                             mchOrderNo:outTradeNo,
+                                         },
+                                         dataType:'json',
+                                         success:function(data){
+                                             mizhu.alert('',data.message);
+                                             chargeArr=[];
+                                             $('.list').empty();
+                                             reCharge();
+                                         }
+                                     })
+                                     $.ajax({
+                                         type:'post',
+                                         url:ip+'/icrane/api/member/info/getUserInfo',
+                                         data:{
+                                             "memberId":user.id,
+                                             // "dollId":room.id,
+                                             "token":token,
+                                         },
+                                         success:function(data){
+                                             var res = data.resultData;
+                                             $('.num').text(res.coins);
+                                             // $('#mycoins').text(res.coins);
+                                         }
+                                     })
+                                 }else if(res.err_msg == "get_brand_wcpay_request:cancel"){
+                                     mizhu.alert('','您取消了支付');
+                                 }else{
+                                     mizhu.alert('','支付失败')
+                                 }     // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。
+                             }
+                         );
+                         if (typeof WeixinJSBridge == "undefined"){
+                             if( document.addEventListener ){
+                                 document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+                             }else if (document.attachEvent){
+                                 document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+                                 document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+                             }
+                         }else{
+                             onBridgeReady();
+                         }
+                         // alert(1);
+                     }else{
+                         mizhu.alert('',res.message);
+                     }
+                 }
+             })
+         }
         })
-    // }
+   //}
     //充值隐藏框
     //玩家hi币数量渲染
     $.ajax({
@@ -510,11 +504,11 @@
         })
     })
     $('.downloading').on('click',function(){
-        if(isiOS){
+        /*if(isiOS){
             window.open("https://itunes.apple.com/cn/app/365%E6%8A%93%E5%A8%83%E5%A8%83/id1314921684?mt=8");
         }else{
             window.open("http://a.app.qq.com/o/simple.jsp?pkgname=com.wanyiguo.zww365");
-        }
+        }*/
     })
     //禁止下拉
     // var overscroll = function(el) {

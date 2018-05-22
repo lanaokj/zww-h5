@@ -283,7 +283,7 @@
         },2000) 
         
         //验证登录
-        $.ajax({
+ /*       $.ajax({
             type:'post',
             url:ip+'/icrane/api/doll/getDollListPage',
             data:{
@@ -297,7 +297,7 @@
                     window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxcb4254f4b131fc12&redirect_uri=http%3A%2F%2Flanao.nat300.top/icrane/api/h5login&response_type=code&scope=snsapi_userinfo#wechat_redirect';
                 }
             }
-        })
+        })*/
         if(room.machineStatus == '空闲中'){
             $('.otherInGame').hide();
             $.ajax({
