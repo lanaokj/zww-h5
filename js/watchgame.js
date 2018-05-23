@@ -21,9 +21,9 @@
     function random(){
         var randomNum = Math.floor(Math.random()*10+1);
         if(randomNum > 5){
-            $('.bgm').attr('src','./music/music1.mp3');
+            $('.bgm').attr('src','./images/music1.mp3');
         }else{
-            $('.bgm').attr('src','./music/music2.mp3');
+            $('.bgm').attr('src','./images/music2.mp3');
         }
     }
 
@@ -34,7 +34,7 @@
     })
     $('.playMusic').on('click',function(){
         $(this).hide();$('.music').show();
-        $('.bgm').attr('src','./music/music1.mp3');
+        $('.bgm').attr('src','./images/music1.mp3');
     })
     var wechat = localStorage.getItem('wechat');
     var room = JSON.parse(localStorage.getItem('room'));
@@ -953,8 +953,8 @@
                             chargeHtml +='<li><div class="coins"><div class="coinsNum"><div><span class="font24">'+chargeList[i].coinsCharge+'+'+chargeList[i].coinsOffer+'</span>   <span class="font30">Hi币</span></div><span class="coinsName">'+chargeList[i].chargeName+'</span></div><span class="dec">'+chargeList[i].description+'</span></div><div class="chargePrice">¥'+chargeList[i].chargePrice+'</div></li>'
                         }
                     }
-                    console.log(chargeHtml);
-                    console.log(chargeArr);
+                 //   console.log(chargeHtml);
+                  //  console.log(chargeArr);
                     $(chargeHtml).appendTo($('.list'))
                 }
             }

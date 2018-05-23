@@ -5,7 +5,7 @@ var browserSync=require("browser-sync");
 var uglify=require("gulp-uglify");
 var htmlmin=require("gulp-htmlmin");
 var imagemin=require("gulp-imagemin");
-// var babel = require("gulp-babel");  
+ //var babel = require("gulp-babel");
 var reload= browserSync.reload;
 var fileName = "lanaokj";
 //sass
