@@ -15,8 +15,7 @@
     <link rel="stylesheet" href="./css/watchgame.css?v1">
     <link rel="stylesheet" href="./css/style.css">
     <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
-    <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
-    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script> 
+    <script src="./js/jweixin-1.2.0.js"></script>
     <style>
         #data-url,#play{
             position: absolute;
@@ -204,7 +203,7 @@
         var canvas = document.getElementById('video-canvas');
         var url = document.getElementById('data-url').value;
         if (url.length == 0) {
-            url = "ws://pili-live-rtmp.zglhub.clouddn.com:1250/zglhub/zhuawawa.wsts"
+            url = "ws://pili-live-rtmp.lanao.fun:1250/lanaokj/device_1001.wsts"
         }
         //alert(url)
         var player = new JSMpeg.Player(url, {canvas: canvas});

@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./css/personal.css">
     <link rel="stylesheet" href="./css/style.css">
     <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>  
-    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="./js/jweixin-1.2.0.js"></script>
 </head>
 <body>
     <header>
@@ -121,17 +121,17 @@
     <script src="./js/ip.js"></script>
     <script src="./js/personal.js"></script>
     <script>
-        var u = navigator.userAgent;
-        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
-        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    //    var u = navigator.userAgent;
+       // var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+     //   var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
         $('.download').on('click',function(){
         // alert(1111);
-        console.log(isiOS,isAndroid);
+      /*  console.log(isiOS,isAndroid);
             if(isiOS){
                 window.open("https://itunes.apple.com/cn/app/365%E6%8A%93%E5%A8%83%E5%A8%83/id1314921684?mt=8");
             }else{
                 window.open("http://a.app.qq.com/o/simple.jsp?pkgname=com.wanyiguo.zww365");
-            }
+            }*/
         }); 
     </script>
     <script>

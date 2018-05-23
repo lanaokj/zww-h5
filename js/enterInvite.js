@@ -54,7 +54,7 @@
                 wx.onMenuShareAppMessage({
                     title: '哇~抓娃娃居然点开就能玩,抓到了还一个包邮送到家!', // 分享标题
                     desc: '在线抓娃娃,点开就能玩!抓到了还一个包邮送到家!超多娃娃!激光瞄准', // 分享描述
-                    link: 'http://zww.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                    link: 'http://h5.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                     imgUrl: 'http://zww-image-dev.oss-cn-shanghai.aliyuncs.com/238640877592622509.jpg', // 分享图标
                     type: '', // 分享类型,music、video或link，不填默认为link
                     dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
@@ -70,7 +70,7 @@
                 //分享到朋友圈
                 wx.onMenuShareTimeline({
                     title: '哇~抓娃娃居然点开就能玩,抓到了还一个包邮送到家!', // 分享标题
-                    link: 'http://zww.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                    link: 'http://h5.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                     imgUrl: 'http://zww-image-dev.oss-cn-shanghai.aliyuncs.com/238640877592622509.jpg', // 分享图标
                     success: function () {
                     // 用户确认分享后执行的回调函数
@@ -83,7 +83,7 @@
                 wx.onMenuShareQQ({
                     title:'哇~抓娃娃居然点开就能玩,抓到了还一个包邮送到家!', // 分享标题
                     desc: '超多萌娃!激光瞄准!一个就包邮!网搜抓娃娃,赶紧点开一起玩吧!', // 分享描述
-                    link: 'http://zww.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id, // 分享链接
+                    link: 'http://h5.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id, // 分享链接
                     imgUrl: 'http://zww-image-dev.oss-cn-shanghai.aliyuncs.com/238640877592622509.jpg', // 分享图标
                     success: function () {
                     // 用户确认分享后执行的回调函数
@@ -96,7 +96,7 @@
                 wx.onMenuShareQZone({
                     title: '哇~抓娃娃居然点开就能玩,抓到了还一个包邮送到家!', // 分享标题
                     desc: '超多萌娃!激光瞄准!一个就包邮!网搜抓娃娃,赶紧点开一起玩吧!', // 分享描述
-                    link: 'http://zww.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id, // 分享链接
+                    link: 'http://h5.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id, // 分享链接
                     imgUrl: 'http://zww-image-dev.oss-cn-shanghai.aliyuncs.com/238640877592622509.jpg', // 分享图标
                     success: function () {
                     // 用户确认分享后执行的回调函数

@@ -73,7 +73,7 @@
                 wx.onMenuShareAppMessage({
                     title: TITLE, // 分享标题
                     desc: DESC, // 分享描述
-                    link: 'http://zww.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id + '&index='+index, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                    link: 'http://h5.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id + '&index='+index, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                     imgUrl: room.tbimgRealPath, // 分享图标
                     type: '', // 分享类型,music、video或link，不填默认为link
                     dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
@@ -92,7 +92,7 @@
                 //分享到朋友圈
                 wx.onMenuShareTimeline({
                     title:TITLE, // 分享标题
-                    link: 'http://zww.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id + '&index='+index, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                    link: 'http://h5.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id + '&index='+index, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                     imgUrl: room.tbimgRealPath, // 分享图标
                     success: function () {
                     // 用户确认分享后执行的回调函数
@@ -108,7 +108,7 @@
                 wx.onMenuShareQQ({
                     title:TITLE, // 分享标题
                     desc: DESC, // 分享描述
-                    link: 'http://zww.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id + '&index='+index, // 分享链接
+                    link: 'http://h5.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id + '&index='+index, // 分享链接
                     imgUrl: room.tbimgRealPath, // 分享图标
                     success: function () {
                     // 用户确认分享后执行的回调函数
@@ -124,7 +124,7 @@
                 wx.onMenuShareQZone({
                     title:TITLE, // 分享标题
                     desc: DESC, // 分享描述
-                    link: 'http://zww.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id + '&index='+index, // 分享链接
+                    link: 'http://h5.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id + '&index='+index, // 分享链接
                     imgUrl: room.tbimgRealPath, // 分享图标
                     success: function () {
                     // 用户确认分享后执行的回调函数
@@ -382,14 +382,13 @@
             },
             dataType:'json',
             success:function(data){
-                // console.log(data);
+
                 if(data.success){
                     var result = data.catchDollList;
                     for(var i = 0;i<result.length;i++){
                         catchList += '<li><div class="pic"><img src="'+result[i].iconRealPath
                     +'" alt=""></div><div class="userinfo"><span>'+result[i].name+'</span><span>'+result[i].catchDate+'</span></div><span class="result">成功</span></li>'
                     }
-                    // console.log(catchList);
                     $(catchList).appendTo($('.record'));
                 }
             }
@@ -497,7 +496,7 @@
         },
         success:function(data){
             if(data.success){
-                console.log(data);
+
                 var res = data.resultData;
                 var dollName = res.dollParticulars.name,
                     size = res.dollParticulars.size,
@@ -544,7 +543,7 @@
         dataType:'json',
         success:function(data){
             var res = data.resultData;
-            console.log(res);
+
             $('.balanceNum').text('余额'+res.coins);
             $('.num1').text(res.coins);
         }
@@ -557,7 +556,7 @@
         //开始游戏 倒计时开始减少
         // clearInterval(check);
         num = 30;
-        console.log(1);
+
         $.ajax({
             type:'post',
             url:ip+'/icrane/api/game/start',
@@ -668,7 +667,7 @@
                                         })
                                         $('.catchSuccess').css('display','flex');
                                         //根据用户娃娃币判断是否够下次玩 不够则提示充值再战
-                                        console.log($('.balanceNum').val());
+                                      //  console.log($('.balanceNum').val());
                                         if(coins >= room.price){
                                             $('.again').text('再来一局(10s)');
                                             var ten = setInterval(function(){
@@ -772,7 +771,7 @@
                     //渲染余额
                     ws.onmessage = function(event){
                         var res = JSON.parse(event.data);
-                        console.log(res.s,res);
+                       // console.log(res.s,res);
                         if(res.s == 'idle'){
                             ws.send('coin');
                             clearTimeout(q);                            
@@ -1141,7 +1140,7 @@
                     wx.onMenuShareAppMessage({
                         title: TITLE, // 分享标题
                         desc: DESC, // 分享描述
-                        link: 'http://zww.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id + '&index='+index, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                        link: 'http://h5.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id + '&index='+index, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                         imgUrl: room.tbimgRealPath, // 分享图标
                         type: '', // 分享类型,music、video或link，不填默认为link
                         dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
@@ -1158,7 +1157,7 @@
                     //分享到朋友圈
                     wx.onMenuShareTimeline({
                         title:TITLE, // 分享标题
-                        link: 'http://zww.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id + '&index='+index, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                        link: 'http://h5.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id + '&index='+index, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                         imgUrl: room.tbimgRealPath, // 分享图标
                         success: function () {
                         // 用户确认分享后执行的回调函数
@@ -1172,7 +1171,7 @@
                     wx.onMenuShareQQ({
                         title:TITLE, // 分享标题
                         desc: DESC, // 分享描述
-                        link: 'http://zww.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id + '&index='+index, // 分享链接
+                        link: 'http://h5.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id + '&index='+index, // 分享链接
                         imgUrl: room.tbimgRealPath, // 分享图标
                         success: function () {
                         // 用户确认分享后执行的回调函数
@@ -1186,7 +1185,7 @@
                     wx.onMenuShareQZone({
                         title:TITLE, // 分享标题
                         desc: DESC, // 分享描述
-                        link: 'http://zww.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id + '&index='+index, // 分享链接
+                        link: 'http://h5.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id + '&index='+index, // 分享链接
                         imgUrl: room.tbimgRealPath, // 分享图标
                         success: function () {
                         // 用户确认分享后执行的回调函数
@@ -1235,7 +1234,7 @@
                     wx.onMenuShareAppMessage({
                         title: TITLE, // 分享标题
                         desc: DESC, // 分享描述
-                        link: 'http://zww.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id + '&index='+index, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                        link: 'http://h5.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id + '&index='+index, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                         imgUrl: room.tbimgRealPath, // 分享图标
                         type: '', // 分享类型,music、video或link，不填默认为link
                         dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
@@ -1252,7 +1251,7 @@
                     //分享到朋友圈
                     wx.onMenuShareTimeline({
                         title:TITLE, // 分享标题
-                        link: 'http://zww.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id + '&index='+index, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                        link: 'http://h5.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id + '&index='+index, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                         imgUrl: room.tbimgRealPath, // 分享图标
                         success: function () {
                         // 用户确认分享后执行的回调函数
@@ -1266,7 +1265,7 @@
                     wx.onMenuShareQQ({
                         title:TITLE, // 分享标题
                         desc: DESC, // 分享描述
-                        link: 'http://zww.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id + '&index='+index, // 分享链接
+                        link: 'http://h5.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id + '&index='+index, // 分享链接
                         imgUrl: room.tbimgRealPath, // 分享图标
                         success: function () {
                         // 用户确认分享后执行的回调函数
@@ -1280,7 +1279,7 @@
                     wx.onMenuShareQZone({
                         title:TITLE, // 分享标题
                         desc: DESC, // 分享描述
-                        link: 'http://zww.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id + '&index='+index, // 分享链接
+                        link: 'http://h5.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id + '&index='+index, // 分享链接
                         imgUrl: room.tbimgRealPath, // 分享图标
                         success: function () {
                         // 用户确认分享后执行的回调函数

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
     <title>网搜抓娃娃</title>
     <script src="./js/rem.js"></script>    
-    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>    
+    <script src="./js/jweixin-1.2.0.js"></script>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/mybox.css">
     <link rel="stylesheet" href="./css/style.css">
@@ -112,17 +112,16 @@
     <script>
         var order = {};
         var TIME = new Date().getTime() /1000;
-        var u = navigator.userAgent;
-        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
-        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+     //   var u = navigator.userAgent;
+     //   var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+  //      var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
         $('#download').on('touchend',function(){
-        // alert(1111);
-            console.log(isiOS,isAndroid);
+           /* console.log(isiOS,isAndroid);
             if(isiOS){
                 window.open("https://itunes.apple.com/cn/app/365%E6%8A%93%E5%A8%83%E5%A8%83/id1314921684?mt=8");
             }else{
                 window.open("http://a.app.qq.com/o/simple.jsp?pkgname=com.wanyiguo.zww365");
-            }
+            }*/
         });
         // var room = JSON.parse(localStorage.getItem('room'));
         var token = localStorage.getItem('token');  
