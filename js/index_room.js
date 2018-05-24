@@ -54,8 +54,8 @@
                 wx.onMenuShareAppMessage({
                     title: '哇~抓娃娃居然点开就能玩,抓到了还一个包邮送到家!', // 分享标题
                     desc: '在线抓娃娃,点开就能玩!抓到了还一个包邮送到家!超多娃娃!激光瞄准', // 分享描述
-                    link: 'http://h5.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                    imgUrl: 'http://zww-image-dev.oss-cn-shanghai.aliyuncs.com/238640877592622509.jpg', // 分享图标
+                    link: lanaourl + 'sharePage.html?token='+token+'&userId='+user.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                    imgUrl: lanaologo, // 分享图标
                     type: '', // 分享类型,music、video或link，不填默认为link
                     dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
                     success: function () {
@@ -70,8 +70,8 @@
                 //分享到朋友圈
                 wx.onMenuShareTimeline({
                     title: '哇~抓娃娃居然点开就能玩,抓到了还一个包邮送到家!', // 分享标题
-                    link: 'http://h5.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                    imgUrl: 'http://zww-image-dev.oss-cn-shanghai.aliyuncs.com/238640877592622509.jpg', // 分享图标
+                    link: lanaourl + 'sharePage.html?token='+token+'&userId='+user.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                    imgUrl: lanaologo, // 分享图标
                     success: function () {
                     // 用户确认分享后执行的回调函数
                     },
@@ -83,8 +83,8 @@
                 wx.onMenuShareQQ({
                     title:'哇~抓娃娃居然点开就能玩,抓到了还一个包邮送到家!', // 分享标题
                     desc: '超多萌娃!激光瞄准!一个就包邮!网搜抓娃娃,赶紧点开一起玩吧!', // 分享描述
-                    link: 'http://h5.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id, // 分享链接
-                    imgUrl: 'http://zww-image-dev.oss-cn-shanghai.aliyuncs.com/238640877592622509.jpg', // 分享图标
+                    link: lanaourl + 'sharePage.html?token='+token+'&userId='+user.id, // 分享链接
+                    imgUrl: lanaologo, // 分享图标
                     success: function () {
                     // 用户确认分享后执行的回调函数
                     },
@@ -96,8 +96,8 @@
                 wx.onMenuShareQZone({
                     title: '哇~抓娃娃居然点开就能玩,抓到了还一个包邮送到家!', // 分享标题
                     desc: '超多萌娃!激光瞄准!一个就包邮!网搜抓娃娃,赶紧点开一起玩吧!', // 分享描述
-                    link: 'http://h5.lanao.fun/lanaokj/sharePage.html?token='+token+'&userId='+user.id, // 分享链接
-                    imgUrl: 'http://zww-image-dev.oss-cn-shanghai.aliyuncs.com/238640877592622509.jpg', // 分享图标
+                    link: lanaourl + 'sharePage.html?token='+token+'&userId='+user.id, // 分享链接
+                    imgUrl: lanaologo, // 分享图标
                     success: function () {
                     // 用户确认分享后执行的回调函数
                     },
@@ -124,11 +124,11 @@
     function yearConfirm(){
         // var r = confirm('发送弹幕需要下载APP,您确定要下载吗?');
         // if(r){
-            if(isiOS){
+          /*  if(isiOS){
                 window.open("https://itunes.apple.com/cn/app/365%E6%8A%93%E5%A8%83%E5%A8%83/id1314921684?mt=8");
             }else{
                 window.open("http://a.app.qq.com/o/simple.jsp?pkgname=com.wanyiguo.zww365");
-            }
+            }*/
         // }
     }
     (function(){
@@ -213,11 +213,11 @@
                     if($(this).hasClass('download')){
                         // yearConfirm();
                         //mizhu提示
-                        mizhu.confirm('','该款娃娃是APP专享娃娃,下载app,更多狗年娃娃,爆款娃娃等着你!',function(flag){
+                       /* mizhu.confirm('','该款娃娃是APP专享娃娃,下载app,更多狗年娃娃,爆款娃娃等着你!',function(flag){
                             if(flag){
                                 yearConfirm();
                             }
-                        })
+                        })*/
                         return false;
                     }
                     var roomIndex = $(this).index()-1;
@@ -300,10 +300,10 @@
         cubuk_seviye = $(document).scrollTop();	
      });
      $('.b1').on('click',function(){
-        window.location.href = 'http://h5.365zhuawawa.com/sharePage/bigbattle.html';
+        window.location.href = lanaourl + 'sharePage/bigbattle.html';
      });
      $('.b2').on('click',function(){
-        window.location.href = 'http://h5.365zhuawawa.com/sharePage/rank.html?token='+token;
+        window.location.href = lanaourl + 'sharePage/rank.html?token='+token;
      })
      $('.b3').on('click',function(){
          window.location.href = 'https://mp.weixin.qq.com/s?__biz=MzU3NjMzNzc3MQ==&mid=2247483677&idx=1&sn=3986189d406a1d5f6a150ebeea5edbc5&chksm=fd142319ca63aa0fc486f1fab9010ba9dccb888d6ee9bdb1a0626bbf59bb571b4c09fdc56693#rd';

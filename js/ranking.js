@@ -9,7 +9,7 @@
             return null;
         } 
     }
-    
+    var user = JSON.parse(localStorage.getItem('info'));
     var token = GetQueryString('token');
     var getData_2 = true;
     var getData_3 = true;
@@ -29,7 +29,7 @@
         //充值榜 type3
         $.ajax({
             type:'post',
-            url:'http://p.365zhuawawa.com/?r=rank/member',
+            url:ip + '/?r=rank/member',
             data:{
                 token:token,
             },
@@ -54,7 +54,7 @@
         })
         $.ajax({
             type:'post',
-            url:'http://192.168.2.224:8080/icrane/api/wx/onMenuShareTimeline',
+            url:ip + '/icrane/api/wx/onMenuShareTimeline',
             data:{
                 'url':window.location.href.split('#')[0],
             },
@@ -80,8 +80,8 @@
                     wx.onMenuShareAppMessage({
                         title: '哇~抓娃娃居然点开就能玩,抓到了还一个包邮送到家!', // 分享标题
                         desc: '超多萌娃!激光瞄准!一个就包邮!网搜抓娃娃,赶紧点开一起玩吧!', // 分享描述
-                        link: "http://dev.365zhuawawa.com/H5/", // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                        imgUrl: 'http://zww-image-dev.oss-cn-shanghai.aliyuncs.com/238640877592622509.jpg', // 分享图标
+                        link: lanaourl + 'sharePage.html?token='+token+'&userId='+user.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                        imgUrl: lanaologo, // 分享图标
                         type: '', // 分享类型,music、video或link，不填默认为link
                         dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
                         success: function () {
@@ -96,8 +96,8 @@
                     //分享到朋友圈
                     wx.onMenuShareTimeline({
                         title: '哇~抓娃娃居然点开就能玩,抓到了还一个包邮送到家!', // 分享标题
-                        link: 'http://dev.365zhuawawa.com/H5/', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                        imgUrl: 'http://zww-image-dev.oss-cn-shanghai.aliyuncs.com/238640877592622509.jpg', // 分享图标
+                        link: lanaourl + 'sharePage.html?token='+token+'&userId='+user.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                        imgUrl: lanaologo, // 分享图标
                         success: function () {
                         // 用户确认分享后执行的回调函数
                         },
@@ -109,8 +109,8 @@
                     wx.onMenuShareQQ({
                         title: '哇~抓娃娃居然点开就能玩,抓到了还一个包邮送到家!', // 分享标题
                         desc: '超多萌娃!激光瞄准!一个就包邮!网搜抓娃娃,赶紧点开一起玩吧!', // 分享描述
-                        link: 'http://dev.365zhuawawa.com/H5/', // 分享链接
-                        imgUrl: 'http://zww-image-dev.oss-cn-shanghai.aliyuncs.com/238640877592622509.jpg', // 分享图标
+                        link: lanaourl + 'sharePage.html?token='+token+'&userId='+user.id, // 分享链接
+                        imgUrl: lanaologo, // 分享图标
                         success: function () {
                         // 用户确认分享后执行的回调函数
                         },
@@ -122,8 +122,8 @@
                     wx.onMenuShareQZone({
                         title: '哇~抓娃娃居然点开就能玩,抓到了还一个包邮送到家!', // 分享标题
                         desc: '超多萌娃!激光瞄准!一个就包邮!网搜抓娃娃,赶紧点开一起玩吧!', // 分享描述
-                        link: 'http://dev.365zhuawawa.com/H5/', // 分享链接
-                        imgUrl: 'http://zww-image-dev.oss-cn-shanghai.aliyuncs.com/238640877592622509.jpg', // 分享图标
+                        link: lanaourl + 'sharePage.html?token='+token+'&userId='+user.id, // 分享链接
+                        imgUrl: lanaologo, // 分享图标
                         success: function () {
                         // 用户确认分享后执行的回调函数
                         },
@@ -147,7 +147,7 @@
 
     $.ajax({
         type:"post",
-        url: 'http://www.365zhuawawa.com:8080/icrane/api/rankingList/get',
+        url: ip + '/icrane/api/rankingList/get',
         dataType:'json',
         data:{
             type:3,
@@ -201,7 +201,7 @@
         if(this_index == 0){
             $.ajax({
                 type:"post",
-                url: 'http://www.365zhuawawa.com:8080/icrane/api/rankingList/get',
+                url: ip + '/icrane/api/rankingList/get',
                 dataType:'json',
                 data:{
                     type:3,
@@ -225,7 +225,7 @@
         }else if(this_index == 1){
             $.ajax({
                 type:"post",
-                url: 'http://www.365zhuawawa.com:8080/icrane/api/rankingList/get',
+                url: ip + '/icrane/api/rankingList/get',
                 dataType:'json',
                 data:{
                     type:1,
@@ -250,7 +250,7 @@
             $('.box').children().eq(1).text('抓中数量')
             $.ajax({
                 type:"post",
-                url: 'http://www.365zhuawawa.com:8080/icrane/api/rankingList/get',
+                url: ip + '/icrane/api/rankingList/get',
                 dataType:'json',
                 data:{
                     type:2,
@@ -278,7 +278,7 @@
             //榜单2 type1
             $.ajax({
                 type:"post",
-                url: 'http://www.365zhuawawa.com:8080/icrane/api/rankingList/get',
+                url: ip+'/icrane/api/rankingList/get',
                 dataType:'json',
                 data:{
                     type:1,
@@ -326,7 +326,7 @@
             $('.loading').show();
             $.ajax({
                 type:"post",
-                url: 'http://www.365zhuawawa.com:8080/icrane/api/rankingList/get',
+                url: ip + '/icrane/api/rankingList/get',
                 dataType:'json',
                 data:{
                     type:2,
