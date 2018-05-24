@@ -571,6 +571,8 @@
                     $('.loadingGame').show();
                     $('.handleInGame').hide();
                     localStorage.setItem('socket',JSON.stringify(data.resultData));
+                    console.log(data.resultData.socketUrl+' / '+user.id+' / '+room.id+' / '+room.machineSerialNum+ ' / '+room.machineUrl+' / '+room.machineIp+' / '+token)
+                    //ws://47.106.39.237:8080/icrane/api/webSocket / 3 / 186 / gbHwjqaIekS / devicea_1001 / devicea_1001 / ph_a1fec119-d930-4510-b0b0-6c54eb7eadb4
                     //连接socket
                     var ws = new WebSocket(data.resultData.socketUrl+'/'+user.id+'/'+room.id+'/'+room.machineSerialNum+'/'+room.machineUrl+'/'+room.machineIp+'/'+token);
                     console.log(ws);
@@ -771,7 +773,8 @@
                     //渲染余额
                     ws.onmessage = function(event){
                         var res = JSON.parse(event.data);
-                       // console.log(res.s,res);
+                        alert(res.s);
+                        console.log(res.s,res);
                         if(res.s == 'idle'){
                             ws.send('coin');
                             clearTimeout(q);                            

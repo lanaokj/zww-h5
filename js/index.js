@@ -192,7 +192,7 @@
     //判断是否为手机号 不是则获取验证码按钮不可点击
     $(document).on('input propertychange','.num_box',function(e){
         if (e.type === "input" || e.orignalEvent.propertyName === "value") {
-            console.log(this.value.length);
+           // console.log(this.value.length);
             if(this.value.length == 11){
                 if(myreg.test(this.value)){
                     // common.tips({msg:'请输入正确手机号'});
@@ -239,7 +239,7 @@ function invokeSettime(obj){
         ,1000)
     };
     var telNumber = $('.num_box').val();
-    console.log(telNumber);
+   // console.log(telNumber);
     $.ajax({
         type:'post',
         url:ip+'/icrane/api/member/getSmsCodeLogin',
@@ -261,7 +261,7 @@ function invokeSettime(obj){
     $('.btn_login').on('click',function(){
         var telNumber = $('.num_box').val();
         var code = $('.code_box').val();
-        console.log(telNumber.length);
+       // console.log(telNumber.length);
         if(telNumber.length == 11){
             $.ajax({
                 type:'post',
