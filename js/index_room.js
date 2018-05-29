@@ -299,6 +299,34 @@
         }				
         cubuk_seviye = $(document).scrollTop();	
      });
+
+/*    $.ajax({
+        type:'post',
+        url:ip+'/icrane/api/doll/getH5BannerList',
+        data:{
+            "token":token,
+            'memberId':userId,
+        },
+        dataType:'json',
+        success:function(data){
+            if(data.success){
+                var list = data.resultData;
+                localStorage.setItem('room',JSON.stringify(list[index]));
+                var bannerListHtml = '';
+                for(var i = 0; i < list.length ; i ++){
+                    roomListHtml += '<div class="room-game"><img src="'+list[i].tbimgRealPath+'" alt=""><span class="wawa-name">'+list[i].name + '</span><div class="game-state">';
+                    if(list[i].machineStatus == '空闲中'){
+                        roomListHtml += '<p class="status"><span>等你抓</span></p>';
+                    }else if(list[i].machineStatus == '游戏中'){
+                        roomListHtml += '<p class="status yellow"><span>游戏中</span></p>';
+                    }else{
+                        roomListHtml += '<p class="status red"><span>维修中</span></p>';
+                    }
+                    roomListHtml += '<p class="rightCoin"><span class="price">'+list[i].price+'</span></p></div></div>';
+                }
+            }
+        }
+    })*/
      $('.b1').on('click',function(){
         window.location.href = lanaourl + 'sharePage/bigbattle.html';
      });

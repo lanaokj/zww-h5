@@ -773,7 +773,7 @@
                     //渲染余额
                     ws.onmessage = function(event){
                         var res = JSON.parse(event.data);
-                        alert(res.s);
+                       // alert(res.s);
                         console.log(res.s,res);
                         if(res.s == 'idle'){
                             ws.send('coin');
